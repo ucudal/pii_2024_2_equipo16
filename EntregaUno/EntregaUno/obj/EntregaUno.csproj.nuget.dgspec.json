@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Estudiante UCU\\Desktop\\Segundo Semestre\\Programación II\\Repositorios\\Compuertas-Logicas\\EntregaUno\\EntregaUno\\EntregaUno.csproj": {}
+    "C:\\Users\\Estudiante UCU\\Desktop\\Segundo Semestre\\Programación II\\Repositorios\\pii_2024_2_equipo16\\EntregaUno\\EntregaUno\\EntregaUno.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Estudiante UCU\\Desktop\\Segundo Semestre\\Programación II\\Repositorios\\Compuertas-Logicas\\EntregaUno\\EntregaUno\\EntregaUno.csproj": {
+    "C:\\Users\\Estudiante UCU\\Desktop\\Segundo Semestre\\Programación II\\Repositorios\\pii_2024_2_equipo16\\EntregaUno\\EntregaUno\\EntregaUno.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Estudiante UCU\\Desktop\\Segundo Semestre\\Programación II\\Repositorios\\Compuertas-Logicas\\EntregaUno\\EntregaUno\\EntregaUno.csproj",
+        "projectUniqueName": "C:\\Users\\Estudiante UCU\\Desktop\\Segundo Semestre\\Programación II\\Repositorios\\pii_2024_2_equipo16\\EntregaUno\\EntregaUno\\EntregaUno.csproj",
         "projectName": "EntregaUno",
-        "projectPath": "C:\\Users\\Estudiante UCU\\Desktop\\Segundo Semestre\\Programación II\\Repositorios\\Compuertas-Logicas\\EntregaUno\\EntregaUno\\EntregaUno.csproj",
+        "projectPath": "C:\\Users\\Estudiante UCU\\Desktop\\Segundo Semestre\\Programación II\\Repositorios\\pii_2024_2_equipo16\\EntregaUno\\EntregaUno\\EntregaUno.csproj",
         "packagesPath": "C:\\Users\\Estudiante UCU\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Estudiante UCU\\Desktop\\Segundo Semestre\\Programación II\\Repositorios\\Compuertas-Logicas\\EntregaUno\\EntregaUno\\obj\\",
+        "outputPath": "C:\\Users\\Estudiante UCU\\Desktop\\Segundo Semestre\\Programación II\\Repositorios\\pii_2024_2_equipo16\\EntregaUno\\EntregaUno\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Estudiante UCU\\AppData\\Roaming\\NuGet\\NuGet.Config"
