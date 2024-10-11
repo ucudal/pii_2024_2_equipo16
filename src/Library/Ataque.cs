@@ -1,4 +1,4 @@
-namespace Library;
+namespace Library
 
 {   //Esta clase define que tipo de ataque usará el jugador para atacar a otro pokemon. Contiene un valor booleano que define si es especial o no, y a partir de ahí calculará el daño que le realizará al otro personaje.
     public class Ataque

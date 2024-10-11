@@ -15,7 +15,7 @@ public class Acero: ITipo
             return 2.0; //El acero es fuerte ante el hielo.
         }
         else if (tipoOponente.NombreTipo == "Fuego")
-       {
+        {
             return 0.5; //Es debil frente al fuego
 
         }

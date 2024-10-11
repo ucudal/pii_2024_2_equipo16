@@ -1,4 +1,6 @@
-﻿namespace EntregaUno;
+﻿using Library;
+
+namespace EntregaUno;
 
 class Program
 {
