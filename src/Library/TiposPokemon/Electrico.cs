@@ -1,4 +1,4 @@
-namespace EntregaUno.TiposPokemon;
+namespace EntregaUno;
 
 public class Electrico: ITipo
 {

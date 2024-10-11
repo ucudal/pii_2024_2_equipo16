@@ -18,9 +18,9 @@ namespace EntregaUno;
             return EquipoPokemon[0]; // Ejemplo simple, por defecto elige el primero.
         }
 
-        public void ElegirAtaque(IPokemon pokemon, int indiceAtaque)
+        public void ElegirAtaque(IPokemon pokemon, IPokemon enemigo, int indiceAtaque)
         {
-            pokemon.UsarAtaque(indiceAtaque, pokemon); // Supongamos que elegimos un ataque del Pokémon
+            pokemon.UsarAtaque(indiceAtaque, enemigo); // Supongamos que elegimos un ataque del Pokémon
         }
 
         public bool MostrarTurno()
