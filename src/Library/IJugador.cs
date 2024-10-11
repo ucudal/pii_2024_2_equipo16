@@ -1,4 +1,4 @@
-namespace EntregaUno;
+namespace Library;
 
 // Esta interfaz define las acciones que el jugador podrá realizar previamente y durante la batalla
 public interface IJugador

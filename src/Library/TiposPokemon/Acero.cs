@@ -1,4 +1,4 @@
-namespace EntregaUno;
+namespace Library;
 
 public class Acero: ITipo
 {

@@ -1,4 +1,4 @@
-namespace EntregaUno;
+namespace Library;
     public class JugadorPrincipal : IJugador
     {
        public string NombreJugador { get; set; }

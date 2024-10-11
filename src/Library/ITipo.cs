@@ -1,4 +1,4 @@
-namespace EntregaUno;
+namespace Library;
 
 // Esta interfaz define el tipo de pokémon y determina la potencia de los ataques según el tipo de pókemon que será atacado
 public interface ITipo

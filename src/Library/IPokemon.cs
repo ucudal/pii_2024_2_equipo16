@@ -1,4 +1,4 @@
-namespace EntregaUno;
+namespace Library;
 
 // Esta interfaz define los atributos y métodos de un pokémon
 public interface IPokemon
