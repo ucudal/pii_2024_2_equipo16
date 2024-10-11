@@ -2,7 +2,12 @@ namespace EntregaUno.TiposPokemon;
 
 public class Fuego: ITipo
 {
-    public string NombreTipo { get; set; } = "Fuego";
+    public string NombreTipo { get;} 
+
+    public Fuego()
+    {
+        NombreTipo = "Fuego";
+    }
 
     //Mediante este método, se analiza frente a qué tipos es debil el fuego
     // y frente a cuales es fuerte.

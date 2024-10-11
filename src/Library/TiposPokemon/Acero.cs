@@ -2,7 +2,12 @@ namespace EntregaUno.TiposPokemon;
 
 public class Acero: ITipo
 {
-    public string NombreTipo { get; set; } = "Acero";
+    public string NombreTipo { get; }
+
+    public Acero()
+    {
+        NombreTipo = "Acero";
+    }
     public double Ponderador(ITipo tipoOponente) //Recibe como parámetro otros tipos de pokemones
     {
         if (tipoOponente.NombreTipo == "Hielo")

@@ -2,8 +2,13 @@ namespace EntregaUno.TiposPokemon;
 
 public class Tierra: ITipo
 {
-    public string NombreTipo { get; set; } = "Tierra";
-     public double Ponderador(ITipo tipoOponente) //Recibe como parámetro otros tipos de pokemones
+    public string NombreTipo { get; }
+    
+    public Tierra()
+    {
+        NombreTipo = "Tierra";
+    }      
+    public double Ponderador(ITipo tipoOponente) //Recibe como parámetro otros tipos de pokemones
     {
         if (tipoOponente.NombreTipo == "Electrico" || tipoOponente.NombreTipo == "Fuego" )
         {
