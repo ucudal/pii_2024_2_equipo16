@@ -1,34 +1,32 @@
-﻿namespace EntregaUno;
-using Library;
+﻿using Library;
 
-class Program
+namespace EntregaUno
 {
-    static void Main(string[] args)
+    class Program
     {
-        // Crear jugadores
-        JugadorPrincipal jugador1 = new JugadorPrincipal("jugador1");
-        JugadorPrincipal jugador2 = new JugadorPrincipal("jugador2");
+        static void Main(string[] args)
+        {
+            // Crear la fachada de batalla
+            BatallaFacade batalla = new BatallaFacade("Ash", "Misty");
 
-        // Crear Pokémons
-        Pokemon pikachu = new Pokemon("Pikachu", new Electrico(), 100);
-        Pokemon squirtle = new Pokemon("Squirtle", new Agua(), 100);
+            // Crear Pokémons
+            Pokemon pikachu = new Pokemon("Pikachu", new Electrico(), 100);
+            Pokemon squirtle = new Pokemon("Squirtle", new Agua(), 100);
 
-        // Añadir ataques
-        pikachu.Ataques.Add(new Ataque("Impactrueno", new Electrico(), 50, false));
-        squirtle.Ataques.Add(new Ataque("Pistola Agua", new Agua(), 40, false));
+            // Añadir ataques a los Pokémons
+            batalla.AgregarAtaqueAPokemon(pikachu, new Ataque("Impactrueno", new Electrico(), 50, false));
+            batalla.AgregarAtaqueAPokemon(squirtle, new Ataque("Pistola Agua", new Agua(), 40, false));
 
-        // Añadir Pokémons al equipo
-        jugador1.EquipoPokemon.Add(pikachu);
-        jugador2.EquipoPokemon.Add(squirtle);
+            // Añadir Pokémons a los equipos de los jugadores
+            batalla.AgregarPokemonAJugador("Ash", pikachu);
+            batalla.AgregarPokemonAJugador("Misty", squirtle);
 
-        // Inicio de batalla
-        Console.WriteLine($"{jugador1.NombreJugador} comienza la batalla con {jugador1.EquipoPokemon[0].Nombre}");
-        Console.WriteLine($"{jugador2.NombreJugador} comienza la batalla con {jugador2.EquipoPokemon[0].Nombre}");
+            // Iniciar batalla
+            batalla.IniciarBatalla();
 
-        // Turnos simulados
-        jugador1.ElegirAtaque(pikachu,squirtle, 0);
-        Console.WriteLine($"La vida de {squirtle.Nombre} es {squirtle.MostrarVida()}");
+            // Simulación de turnos
+            batalla.RealizarAtaque("Ash", 0); // Pikachu ataca primero
+        }
     }
-
 }
 
