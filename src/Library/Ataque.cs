@@ -18,17 +18,25 @@ namespace Library
 
         public double CalcularDaño(IPokemon atacante, IPokemon defensor)
         {
-            double multiplicador = TipoAtaque.Ponderador(defensor.TipoPokemon);
-            double dano = DañoBase * multiplicador;
-            
-            if (EsEspecial)
-            {
-                return dano - defensor.DefensaEspecial;
-            }
-            else
-            {
-                return dano - defensor.Defensa;
-            }
+                double dano;
+
+                // Si es un ataque especial, aplicar el ponderador
+                if (EsEspecial)
+                {
+                    double multiplicador = TipoAtaque.Ponderador(defensor.TipoPokemon);
+                    dano = DañoBase * multiplicador - defensor.DefensaEspecial;
+                }
+                else
+                {
+                    // Si no es especial, el daño se calcula sin ponderador
+                    dano = DañoBase - defensor.Defensa;
+                }
+
+                // Aseguremos de que el daño no sea negativo
+                return Math.Max(dano, 0);
         }
+    
     }
+      
 }
+
