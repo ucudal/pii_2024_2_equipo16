@@ -4,7 +4,7 @@ public class Acero: ITipo
 {
     public string NombreTipo { get; }
 
-    public Acero()
+    public Acero()  //Constructor del tipo, siempre su nombre será Acero.
     {
         NombreTipo = "Acero";
     }

@@ -8,7 +8,11 @@ namespace Library.Tests
         }
 
         [Test]
-        public void TestAtaqueNormal()
+
+        //En los siguientes test se probará utilizar un ataque normal y un ataque especial.
+        // Esto se debe a que son las funciones más importantes que ocurren durante la batalla entre jugadores.
+        // Se espera que la vida calculada mediante los calculos de ataque (CalcularDaño y UsarAtaque) sean los correctos.
+        public void TestAtaqueNormal() 
         {
             // Crear jugadores
             JugadorPrincipal jugador1 = new JugadorPrincipal("José");

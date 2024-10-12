@@ -6,7 +6,7 @@ public interface ITipo
     public string NombreTipo { get;  }         //Nombre del tipo de pokémon
     
     
-    //Mediante este método, se analiza frente a qué tipos es debil el fuego
+    //Mediante este método, se analiza frente a qué tipos es debil el fpokemon
     // y frente a cuales es fuerte.
     // Si es fuerte, el ponderador será 2, significando que el daño que realizará será multiplicado por ese número.
     // De lo conrtario, el dañó será reducido a la mitad por el ponderador.

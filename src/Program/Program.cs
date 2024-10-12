@@ -2,6 +2,8 @@
 
 namespace EntregaUno
 {
+    /*Aca el Program llama a la fachada. Esto se usa para simplificar código, mediante la delegación. El programa es el siguiente:
+    */
     class Program
     {
         static void Main(string[] args)

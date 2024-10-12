@@ -6,7 +6,7 @@ public class Agua: ITipo
 
     public Agua()
     {
-        NombreTipo = "Agua";
+        NombreTipo = "Agua"; //Constructor, su nombre siempre será Agua. Esto es para evitar confusiones a la hora de especificar el tipo de pokemon.
     }
     public double Ponderador(ITipo tipoOponente) //Recibe como parámetro otros tipos de pokemones
     {
