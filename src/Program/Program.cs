@@ -1,14 +1,13 @@
-﻿using Library;
-
-namespace EntregaUno;
+﻿namespace EntregaUno;
+using Library;
 
 class Program
 {
     static void Main(string[] args)
     {
         // Crear jugadores
-        JugadorPrincipal jugador1 = new JugadorPrincipal("Ash");
-        JugadorPrincipal jugador2 = new JugadorPrincipal("Misty");
+        JugadorPrincipal jugador1 = new JugadorPrincipal("jugador1");
+        JugadorPrincipal jugador2 = new JugadorPrincipal("jugador2");
 
         // Crear Pokémons
         Pokemon pikachu = new Pokemon("Pikachu", new Electrico(), 100);
@@ -30,6 +29,6 @@ class Program
         jugador1.ElegirAtaque(pikachu,squirtle, 0);
         Console.WriteLine($"La vida de {squirtle.Nombre} es {squirtle.MostrarVida()}");
     }
-    
+
 }
 
