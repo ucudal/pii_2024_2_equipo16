@@ -1,5 +1,11 @@
 namespace Library
-{
+{   
+    /*
+    En la fachada vemos los métodos de las clases implementados.
+    Acá se crean los jugadores, se les agregan los pokemones y los ataques respectivamente.
+    Además, llama a las funciones necesarias para poder realizar ataques entre jugadores.
+    Todo esto después será utilizado en el Program.
+    */
     public class BatallaFacade
     {
         private JugadorPrincipal jugador1;
@@ -17,10 +23,11 @@ namespace Library
             jugador2Ataco = false; // Inicializamos en falso, porque aún no ha atacado
         }
 
-        // Este método es utilizado para agregar Pokemones a la lista de opciones del jugador.
+        //Este método es utilizado para agregar Pokemones a la lista de opciones del jugador. Para poder 
+        //hacer eso verifica que quien lo agrega es el jugador mismo y no es contrario.
         public void AgregarPokemonAJugador(string nombreJugador, Pokemon pokemon)
         {
-            if (jugador1.NombreJugador == nombreJugador)
+            if (jugador1.NombreJugador == nombreJugador) 
             {
                 jugador1.EquipoPokemon.Add(pokemon);
             }
@@ -30,19 +37,21 @@ namespace Library
             }
         }
 
-        // Toma como parámetro el pokemon elegido y le agrega un ataque del programa.
+        //Toma como parámetro el pokemon elegido y le agrega un ataque del programa.
         public void AgregarAtaqueAPokemon(Pokemon pokemon, Ataque ataque)
         {
             pokemon.Ataques.Add(ataque);
         }
 
-        public void IniciarBatalla()
+        public void IniciarBatalla() //Muestra el inicio del juego, especificando el nombre del jugador y el pokemon elegido.
         {
             Console.WriteLine($"{jugador1.NombreJugador} comienza la batalla con {jugador1.EquipoPokemon[0].Nombre}");
             Console.WriteLine($"{jugador2.NombreJugador} comienza la batalla con {jugador2.EquipoPokemon[0].Nombre}");
+            Console.WriteLine($"¡La batalla ha comenzado! Turno {contadorTurnos}.");
         }
 
-        // Método para realizar ataques por cada jugador
+        // Mediante este método, toma como parámetro al jugador (ya que es quien elige el ataque y quien lo usa), y el ataque elegido de la lista.
+        // Luego devuelve la vida del pokemon atacado.
         public void RealizarAtaque(string nombreJugador, int indiceAtaque)
         {
             if (jugador1.NombreJugador == nombreJugador)
@@ -62,10 +71,25 @@ namespace Library
             if (jugador1Ataco && jugador2Ataco)
             {
                 contadorTurnos++; // Incrementamos el turno después de que ambos han atacado
-                Console.WriteLine($"Turno {contadorTurnos} completado.");
+                Console.WriteLine($"¡El turno {contadorTurnos - 1} ha finalizado!");
+                Console.WriteLine($"Comienza el turno {contadorTurnos}.");
                 jugador1Ataco = false; // Reseteamos el estado para el próximo turno
                 jugador2Ataco = false; // Reseteamos el estado para el próximo turno
             }
+        }
+
+        //Muestra el turno del jugador.
+        public bool VerificarTurno(string nombreJugador)
+        {
+            if (jugador1.NombreJugador == nombreJugador)
+            {
+                return jugador1.MostrarTurno();
+            }
+            else if (jugador2.NombreJugador == nombreJugador)
+            {
+                return jugador2.MostrarTurno();
+            }
+            return false;
         }
 
         // Método para obtener el turno actual
