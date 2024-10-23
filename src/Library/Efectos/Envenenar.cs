@@ -12,7 +12,8 @@ public class Envenenar : IEfectos
     {
         if(turnosRestante > 0)
         {
-            objetivo.VidaActual -= 5;
+            int daño = (int)(objetivo.VidaActual * 0.05);
+            objetivo.VidaActual -= daño;
             turnosRestante--;                           // Este va disminuyendo el contador de turnos en 1
         }
     }
