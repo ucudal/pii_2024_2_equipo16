@@ -1,7 +1,7 @@
 namespace Library;
     public class JugadorPrincipal : IJugador
     {
-       public string NombreJugador { get; set; }
+        public string NombreJugador { get; set; }
         public List<IPokemon> EquipoPokemon { get; set; }
         public bool TurnoActual { get; set; }
 

@@ -1,3 +1,5 @@
+using System.Reflection.Metadata;
+
 namespace Library;
 
 // Esta interfaz define los atributos y métodos de un pokémon
@@ -11,6 +13,8 @@ public interface IPokemon
     public double Defensa { get; set; }                 //Valor de defensa del pokémon
     public double AtaqueEspecial { get; set; }          //Valor de ataque especial del pokémon
     public double DefensaEspecial { get; set; }         //Valor de defensa del pokémon
+    public string Estado {get; set; }                    //Estado es si esta bajo algun efecto
+    public bool PuedeAtacar {get; set; }                //Indicador si esta en condiciones de atacar
 
     
     public void UsarAtaque(int indiceAtaque, IPokemon enemigo);           //Método para realizar un ataque 
