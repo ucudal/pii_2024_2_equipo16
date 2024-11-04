@@ -1,4 +1,4 @@
-namespace Library;
+namespace Library
 {
     public class CuraTotal:IItem
     {
