@@ -1,5 +1,8 @@
 namespace Library;
 
+/// <summary>
+/// Con este tipo de Item, se pueden usar hasta 4 y cada una recupera 70 puntos de HP.
+/// </summary>
 public class SuperPocion: IItem
 {
     public string NombreItem { get; }
@@ -9,7 +12,12 @@ public class SuperPocion: IItem
         NombreItem = "Super Pocion";
     }
 
-    // Método para curar
+    /// <summary>
+    /// Método para curar, recibe la vida actual y la total del pokemón e intenta reestablecerla.
+    /// </summary>
+    /// <param name="VidaActual"></param>
+    /// <param name="VidaTotal"></param>
+    /// <returns></returns>
     public double Curar(double VidaActual, double VidaTotal)
     {
         if (VidaActual < VidaTotal - 70)

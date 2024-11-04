@@ -54,7 +54,7 @@ namespace Library.Tests
             
             // Verificar la vida de Squirtle después del ataque normal
             double dañoNormal = pikachu.Ataques[0].CalcularDaño(pikachu, squirtle);
-            Assert.AreEqual(squirtle.VidaActual, 1150 - dañoNormal);
+            Assert.That(1150 - dañoNormal, Is.EqualTo(squirtle.VidaActual));
         }
 
         [Test]
@@ -100,7 +100,7 @@ namespace Library.Tests
             
             // Verificar la vida de Squirtle después del ataque especial
             double dañoEspecial = pikachu.Ataques[1].CalcularDaño(pikachu, squirtle);
-            Assert.AreEqual(squirtle.VidaActual, 1150 - dañoEspecial);
+            Assert.That(1150 - dañoEspecial, Is.EqualTo(squirtle.VidaActual));
         }
     }
 }

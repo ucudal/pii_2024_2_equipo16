@@ -1,5 +1,9 @@
 namespace Library;
 
+/// <summary>
+/// Tipo de Pokemon, indica en su Ponderador frente a cuales es débil, fuerte o inmune para su ataque.
+/// 
+/// </summary>
 public class Acero: ITipo
 {
     public string NombreTipo { get; }

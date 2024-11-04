@@ -1,21 +1,25 @@
 namespace Library;
 
-public class Envenenar : IEfectos
+/// <summary>
+/// De tipo IEfectos, hace que el pokemon atacado pierda 5% de su HP total cada turno. 
+/// </summary>
+public class Envenenar : AplicarDaño, IEfectos
 {
-    public string nombreEfecto {get; set;} = "Envenenar";
-    private int turnosRestante = 3;                      // Numero de turnos que durara el efecto
+    public string nombreEfecto {get; set;} = "Envenenar";                    
+    
+    /// <summary>
+    /// El Pokémon puede seguir atacando, pero indica que está "envenenado"
+    /// </summary>
+    /// <param name="objetivo"></param>
     public void AplicarEfecto(IPokemon objetivo)
     {
-    objetivo.Estado = "Envenenado";                     // El Pokémon puede seguir atacando
+    objetivo.Estado = "Envenenado";                     
     }
-    public void AplicarDañoPorTurno(IPokemon objetivo)
-    {
-        if(turnosRestante > 0)
-        {
-            int daño = (int)(objetivo.VidaActual * 0.05);
-            objetivo.VidaActual -= daño;
-            turnosRestante--;                           // Este va disminuyendo el contador de turnos en 1
-        }
-    }
+    
+    /// <summary>
+    /// Si un Pokémon está envenenado perderá el 5% de su HP total cada turno. El objetivo es el pokemón enemigo.
+    /// </summary>
+    /// <param name="objetivo"></param>
+   
 
 }
