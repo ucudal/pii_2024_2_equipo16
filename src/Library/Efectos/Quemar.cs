@@ -6,7 +6,7 @@ public class Quemar : IEfectos
     private int turnosRestante = 3;
     public void AplicarEfecto(IPokemon objetivo)
     {
-    objetivo.Estado = "Envenenado"; 
+    objetivo.Estado = "Quemado"; 
     }
     public void AplicarDañoPorTurno(IPokemon objetivo)
     {
