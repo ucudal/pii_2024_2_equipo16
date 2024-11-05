@@ -1,5 +1,8 @@
 namespace Library;
 
+/// <summary>
+/// Tipo de Pokemon, débil contra Tierra, inmunne con Electrico.
+/// </summary>
 public class Electrico: ITipo
 {
     public string NombreTipo { get;  } 
@@ -10,9 +13,9 @@ public class Electrico: ITipo
     }
     public double Ponderador(ITipo tipoOponente) //Recibe como parámetro otros tipos de pokemones
     {
-        if (tipoOponente.NombreTipo == "Agua")
+        if (tipoOponente.NombreTipo == "Electrico")
         {
-            return 2.0; //Es fuerte ante el Agua
+            return 0; //Es inmune su daño ante el eléctrico
         }
         else if (tipoOponente.NombreTipo == "Tierra" )
         {

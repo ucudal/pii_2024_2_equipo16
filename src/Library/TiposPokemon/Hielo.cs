@@ -1,5 +1,8 @@
 namespace Library;
 
+/// <summary>
+/// Tipo de Pokemon, débil contra Fuego, resistente contra Hielo.
+/// </summary>
 public class Hielo: ITipo
 {
     public string NombreTipo { get; }
@@ -10,9 +13,9 @@ public class Hielo: ITipo
     } 
     public double Ponderador(ITipo tipoOponente) //Recibe como parámetro otros tipos de pokemones
     {
-        if (tipoOponente.NombreTipo == "Tierra" || tipoOponente.NombreTipo == "Planta" )
+        if (tipoOponente.NombreTipo == "Hielo")
         {
-            return 2.0; //Es fuerte ante la Tierra y la Planta
+            return 2.0; 
         }
         else if (tipoOponente.NombreTipo == "Acero" || tipoOponente.NombreTipo=="Fuego")
         {

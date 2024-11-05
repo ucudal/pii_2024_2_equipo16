@@ -1,5 +1,8 @@
 namespace Library;
 
+/// <summary>
+/// Tipo de Pokemon, débil frente a Agua y Tierra, resistente frente a Fuego y Planta
+/// </summary>
 public class Fuego: ITipo
 {
     public string NombreTipo { get;} 
@@ -9,15 +12,11 @@ public class Fuego: ITipo
         NombreTipo = "Fuego";
     }
 
-    //Mediante este método, se analiza frente a qué tipos es debil el fuego
-    // y frente a cuales es fuerte.
-    // Si es fuerte, el ponderador será 2, significando que el daño que realizará será multiplicado por ese número.
-    // De lo conrtario, el dañó será reducido a la mitad por el ponderador.
     public double Ponderador(ITipo tipoOponente) //Recibe como parámetro otros tipos de pokemones
     {
-        if (tipoOponente.NombreTipo == "Acero" || tipoOponente.NombreTipo == "Hielo" || tipoOponente.NombreTipo== "Planta")
+        if (tipoOponente.NombreTipo == "Acero" || tipoOponente.NombreTipo == "Fuego" || tipoOponente.NombreTipo== "Planta")
         {
-            return 2.0; //El fuego es fuerte ante el acero, hielo y planta
+            return 2.0; 
         }
         else if (tipoOponente.NombreTipo == "Tierra" || tipoOponente.NombreTipo=="Agua")
         {

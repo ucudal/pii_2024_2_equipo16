@@ -1,4 +1,7 @@
 namespace Library;
+    /// <summary>
+    /// Esta clase representa al usuario, quien hará uso de los distintos pokemones para su batalla
+    /// </summary>
     public class JugadorPrincipal : IJugador
     {
         public string NombreJugador { get; set; }

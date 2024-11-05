@@ -1,5 +1,8 @@
 namespace Library;
 
+    /// <summary>
+    /// Esta clase hereda de la interfaz, define todas las características de los personajes de la batalla.
+    /// </summary>
     public class Pokemon: IPokemon
     {
         public string Nombre { get; set; }                  //Nombre del pokémon
@@ -12,15 +15,17 @@ namespace Library;
         public double DefensaEspecial { get; set; }         //Valor de defensa del pokémon
     
         public List<Ataque> Ataques {get; set;}
+        public string Estado { get; set; }
+        public bool PuedeAtacar { get; set;}
 
         public Pokemon(string nombre, ITipo tipo, double vidaTotal)
-        {
-            Nombre = nombre;
-            TipoPokemon = tipo;
-            VidaActual = vidaTotal;
-            VidaTotal = vidaTotal;
-            Ataques = new List<Ataque>();
-        }
+            {
+                Nombre = nombre;
+                TipoPokemon = tipo;
+                VidaActual = vidaTotal;
+                VidaTotal = vidaTotal;
+                Ataques = new List<Ataque>();
+            }
 
         public void UsarAtaque(int indiceAtaque, IPokemon enemigo)           //Método para realizar un ataque
         {

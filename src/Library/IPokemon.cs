@@ -2,7 +2,9 @@ using System.Reflection.Metadata;
 
 namespace Library;
 
-// Esta interfaz define los atributos y métodos de un pokémon
+/// <summary>
+/// Esta interfaz define los atributos y métodos de un pokémon
+/// </summary>
 public interface IPokemon
 {
     public string Nombre { get; set; }                  //Nombre del pokémon

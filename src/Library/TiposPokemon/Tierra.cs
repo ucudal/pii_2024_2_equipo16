@@ -10,9 +10,9 @@ public class Tierra: ITipo
     }      
     public double Ponderador(ITipo tipoOponente) //Recibe como parámetro otros tipos de pokemones
     {
-        if (tipoOponente.NombreTipo == "Electrico" || tipoOponente.NombreTipo == "Fuego" )
+        if (tipoOponente.NombreTipo == "Electrico")
         {
-            return 2.0; //Es fuerte ante al Fuego y Electrico
+            return 2.0; 
         }
         else if (tipoOponente.NombreTipo == "Agua" || tipoOponente.NombreTipo=="Planta" || tipoOponente.NombreTipo=="Hielo")
         {
