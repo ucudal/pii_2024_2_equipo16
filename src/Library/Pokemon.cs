@@ -1,13 +1,13 @@
 namespace Library;
 
     /// <summary>
-    /// Esta clase hereda de la interfaz, define todas las características de los personajes de la batalla.
+    /// Esta clase hereda de la interfaz, define todas las características de los personajes de la batalla. 094519703
     /// </summary>
     public class Pokemon: IPokemon
     {
         public string Nombre { get; set; }                  //Nombre del pokémon
         public ITipo TipoPokemon { get; set; }              //Tipo del pokémon
-        public double VidaActual { get; set; }                    //Vida del pokémon
+        public double VidaActual { get; set; }              //Vida del pokémon
         public double VidaTotal {get; set;}
         public double Ataque { get; set; }                  //Valor de ataque del pokémon
         public double Defensa { get; set; }                 //Valor de defensa del pokémon

@@ -1,6 +1,7 @@
 using Library;
 
-public abstract class AplicarDaño{
+public abstract class AplicarDaño
+{
     /// <summary>
     /// // Numero de turnos que durara el efecto
     /// </summary>
