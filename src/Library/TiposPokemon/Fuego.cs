@@ -14,11 +14,11 @@ public class Fuego: ITipo
 
     public double Ponderador(ITipo tipoOponente) //Recibe como parámetro otros tipos de pokemones
     {
-        if (tipoOponente.NombreTipo == "Acero" || tipoOponente.NombreTipo == "Fuego" || tipoOponente.NombreTipo== "Planta")
+        if ( tipoOponente.NombreTipo == "Fuego" || tipoOponente.NombreTipo== "Planta")
         {
             return 2.0; 
         }
-        else if (tipoOponente.NombreTipo == "Tierra" || tipoOponente.NombreTipo=="Agua")
+        else if (tipoOponente.NombreTipo == "Tierra" || tipoOponente.NombreTipo=="Agua" || tipoOponente.NombreTipo=="Roca")
         {
             return 0.5; //Fuego es debil ante la Tierra y Agua
 

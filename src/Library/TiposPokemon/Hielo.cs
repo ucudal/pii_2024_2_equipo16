@@ -17,7 +17,7 @@ public class Hielo: ITipo
         {
             return 2.0; 
         }
-        else if (tipoOponente.NombreTipo == "Acero" || tipoOponente.NombreTipo=="Fuego")
+        else if (tipoOponente.NombreTipo == "Roca" || tipoOponente.NombreTipo=="Fuego")
         {
             return 0.5; //Debil ante Acero y Fuego
 
