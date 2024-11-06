@@ -22,3 +22,4 @@ public class Paralizar : IEfectos
         return random.Next(0, 2) == 1;
     }
 }
+

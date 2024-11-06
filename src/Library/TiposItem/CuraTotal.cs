@@ -6,7 +6,9 @@ namespace Library
     /// </summary>
     public class CuraTotal:IItem
     {
-        public string NombreItem {get;}
+        public string NombreItem { get; }
+        private int usosRestantes;
+        private const int usosMaximos = 2;
 
         public CuraTotal()
         {

@@ -20,7 +20,10 @@ public class Electrico: ITipo
         else if (tipoOponente.NombreTipo == "Tierra" )
         {
             return 0.5; //Es debil ante la Tierra
-
+        }
+        else if (tipoOponente.NombreTipo == "Electrico")
+        {
+            return 0; //Es inmune a ataques Electricos
         }
         return 1.0; //Si el fuego es enfrentado frente a otro tipo, el ponderador será neutro.
     }
