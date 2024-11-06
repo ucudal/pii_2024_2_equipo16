@@ -16,8 +16,8 @@ namespace Library
 
         public BatallaFacade(string nombreJugador1, string nombreJugador2)
         {
-            jugador1 = new JugadorPrincipal(nombreJugador1); //El constructor toma como parámetro a los rivales de la partida
-            jugador2 = new JugadorPrincipal(nombreJugador2);
+            jugador1 = new JugadorPrincipal(nombreJugador1, new CatalogoPokemons()); //El constructor toma como parámetro a los rivales de la partida
+            jugador2 = new JugadorPrincipal(nombreJugador2, new CatalogoPokemons());
             contadorTurnos = 1; // Inicializamos el contador de turnos en 1
             jugador1Ataco = false; // Inicializamos en falso, porque aún no ha atacado
             jugador2Ataco = false; // Inicializamos en falso, porque aún no ha atacado
@@ -29,11 +29,11 @@ namespace Library
         {
             if (jugador1.NombreJugador == nombreJugador) 
             {
-                jugador1.EquipoPokemon.Add(pokemon);
+                jugador1.EquipoPokemons.Add(pokemon);
             }
             else if (jugador2.NombreJugador == nombreJugador)
             {
-                jugador2.EquipoPokemon.Add(pokemon);
+                jugador2.EquipoPokemons.Add(pokemon);
             }
         }
 
@@ -45,8 +45,8 @@ namespace Library
 
         public void IniciarBatalla() //Muestra el inicio del juego, especificando el nombre del jugador y el pokemon elegido.
         {
-            Console.WriteLine($"{jugador1.NombreJugador} comienza la batalla con {jugador1.EquipoPokemon[0].Nombre}");
-            Console.WriteLine($"{jugador2.NombreJugador} comienza la batalla con {jugador2.EquipoPokemon[0].Nombre}");
+            Console.WriteLine($"{jugador1.NombreJugador} comienza la batalla con {jugador1.ElegirPokemon(0).Nombre}");
+            Console.WriteLine($"{jugador2.NombreJugador} comienza la batalla con {jugador2.ElegirPokemon(0).Nombre}");
             Console.WriteLine($"¡La batalla ha comenzado! Turno {contadorTurnos}.");
         }
 
@@ -56,14 +56,14 @@ namespace Library
         {
             if (jugador1.NombreJugador == nombreJugador)
             {
-                jugador1.ElegirAtaque(jugador1.EquipoPokemon[0], jugador2.EquipoPokemon[0], indiceAtaque);
-                Console.WriteLine($"La vida de {jugador2.EquipoPokemon[0].Nombre} es {jugador2.EquipoPokemon[0].MostrarVida()}");
+                jugador1.ElegirAtaque(jugador1.ElegirPokemon(0), jugador2.ElegirPokemon(0), indiceAtaque);
+                Console.WriteLine($"La vida de {jugador2.ElegirPokemon(0).Nombre} es {jugador2.ElegirPokemon(0).MostrarVida()}");
                 jugador1Ataco = true; // Indicamos que el jugador 1 atacó
             }
             else if (jugador2.NombreJugador == nombreJugador)
             {
-                jugador2.ElegirAtaque(jugador2.EquipoPokemon[0], jugador1.EquipoPokemon[0], indiceAtaque);
-                Console.WriteLine($"La vida de {jugador1.EquipoPokemon[0].Nombre} es {jugador1.EquipoPokemon[0].MostrarVida()}");
+                jugador2.ElegirAtaque(jugador2.ElegirPokemon(0), jugador1.ElegirPokemon(0), indiceAtaque);
+                Console.WriteLine($"La vida de {jugador1.ElegirPokemon(0).Nombre} es {jugador1.ElegirPokemon(0).MostrarVida()}");
                 jugador2Ataco = true; // Indicamos que el jugador 2 atacó
             }
 

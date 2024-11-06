@@ -1,7 +1,7 @@
 namespace Library;
 
     /// <summary>
-    /// Esta clase hereda de la interfaz, define todas las características de los personajes de la batalla. 094519703
+    /// Esta clase hereda de la interfaz, define todas las características de los personajes de la batalla.
     /// </summary>
     public class Pokemon: IPokemon
     {
@@ -16,8 +16,9 @@ namespace Library;
     
         public List<Ataque> Ataques {get; set;}
         public string Estado { get; set; }
+        public IEfectos? EfectoActivo { get; set; }
         public bool PuedeAtacar { get; set;}
-
+        
         public Pokemon(string nombre, ITipo tipo, double vidaTotal)
             {
                 Nombre = nombre;
@@ -27,13 +28,23 @@ namespace Library;
                 Ataques = new List<Ataque>();
             }
 
-        public void UsarAtaque(int indiceAtaque, IPokemon enemigo)           //Método para realizar un ataque
+        /// <summary>
+        /// Realiza un ataque a un pokémon enemigo
+        /// </summary>
+        /// <param name="indiceAtaque"></param>
+        /// <param name="enemigo"></param>
+        public void UsarAtaque(int indiceAtaque, IPokemon enemigo)           
         {
             Ataque ataque = Ataques[indiceAtaque];
-            double daño = ataque.CalcularDaño(this, enemigo);
-            enemigo.RecibirDaño(daño);
+            double dano = ataque.CalcularDaño(this, enemigo);
+            enemigo.RecibirDaño(dano);
         } 
-        public void RecibirDaño(double dano)          //Método para recibir daño del pokémon enemigo
+        
+        /// <summary>
+        /// Recibe daño del pokémon enemigo
+        /// </summary>
+        /// <param name="dano"></param>
+        public void RecibirDaño(double dano)          
         {
             VidaActual -= dano;
             if (VidaActual <0)
@@ -41,6 +52,11 @@ namespace Library;
                 VidaActual = 0;
             }
         }
+        
+        /// <summary>
+        /// Muestra la vida actual sobre la vida total del pokémon
+        /// </summary>
+        /// <returns></returns>
         public string MostrarVida()
         {
             return $"{VidaActual}/{VidaTotal}";
