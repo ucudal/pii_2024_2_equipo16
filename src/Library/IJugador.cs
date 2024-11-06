@@ -1,6 +1,8 @@
 namespace Library;
 
-// Esta interfaz define las acciones que el jugador podrá realizar previamente y durante la batalla
+/// <summary>
+/// Esta interfaz define las acciones que el jugador podrá realizar previamente y durante la batalla
+/// </summary>
 public interface IJugador
 {
     public string NombreJugador { get; set; }           //Nombre del juagdor

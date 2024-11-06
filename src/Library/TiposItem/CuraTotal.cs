@@ -1,6 +1,10 @@
 namespace Library
 {
-    public class CuraTotal : IItem
+    /// <summary>
+    /// Se pueden usar hasta 2, este item logra que
+    /// se cure a un Pokémon de efectos de ataques especiales, dormido, paralizado, envenenado, o quemado
+    /// </summary>
+    public class CuraTotal:IItem
     {
         public string NombreItem { get; }
         private int usosRestantes;
@@ -9,30 +13,15 @@ namespace Library
         public CuraTotal()
         {
             NombreItem = "Cura Total";
-            usosRestantes = usosMaximos;
         }
-
-        // Método para quitar los efectos
-        public void QuitarEfectos(IPokemon objetivo)
+        
+        /// <summary>
+        /// Metodo para quitar los efectos
+        /// </summary>
+        /// <returns></returns>
+        public double QuitarEfectos()
         {
-            if (usosRestantes > 0)
-            {
-                if (objetivo.EfectoActivo != null)
-                {
-                    objetivo.EfectoActivo = null;
-                    objetivo.Estado = "Normal";
-                    Console.WriteLine($"{objetivo.Nombre} ya no está bajo ningún efecto");
-                    usosRestantes--;
-                }
-                else
-                {
-                    Console.WriteLine($"{objetivo.Nombre} no tiene efectos activos.");
-                }
-            }
-            else
-            {
-                Console.WriteLine("No se pueden usar más 'Cura Total' en esta batalla.");
-            }
+            return 2;
         }
     }
 }

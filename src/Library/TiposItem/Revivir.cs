@@ -1,5 +1,8 @@
 namespace Library
 {
+    /// <summary>
+    /// Este tipo de Item logra que se reviva a un Pokemon con el 50% de su HP total.
+    /// </summary>
     public class Revivir : IItem
     {
         public string NombreItem { get; }
@@ -12,7 +15,12 @@ namespace Library
             usosRestantes = usosMaximos; 
         }
 
-        // Método para revivir
+        /// <summary>
+        /// Metodo para quitar los efectos
+        /// </summary>
+        /// <param name="VidaActual"></param>
+        /// <param name="VidaTotal"></param>
+        /// <returns></returns>
         public double RevivirPokemon(double VidaActual, double VidaTotal)
         {
             if (usosRestantes > 0)
