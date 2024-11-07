@@ -18,11 +18,12 @@ public interface IPokemon
     public List<Ataque> Ataques {get; set;}
     public string Estado {get; set; }                    //Estado es si esta bajo algun efecto
     IEfectos? EfectoActivo{get; set;}
-    public int TurnosContador { get; set; }
+    public int turnoContadorEspecial { get; set; }
 
     public bool PuedeAtacar {get; set; }                //Indicador si esta en condiciones de atacar
-    public void UsarAtaque(int indiceAtaque, IPokemon enemigo);           //Método para realizar un ataque 
+    public string UsarAtaque(int indiceAtaque, IPokemon enemigo);           //Método para realizar un ataque 
     public void RecibirDaño(double dano);          //Método para recibir daño del pokémon enemigo
     public string MostrarVida();                        //Método para mostrar la vida actual del pokémon
     public void AtaquesPorTipo();
+    public List<Ataque> ObtenerAtaquesDisponibles();
 }

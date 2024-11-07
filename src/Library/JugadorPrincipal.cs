@@ -89,9 +89,9 @@ namespace Library;
                 IPokemon pokemon = EquipoPokemons[indice];
                 Console.WriteLine($"Ataques disponibles para {pokemon.Nombre} de tipo {pokemon.TipoPokemon.NombreTipo}:\n");
 
-                for (int i = 0; i < pokemon.Ataques.Count; i++)
+                for (int i = 0; i < pokemon.Ataques.Count - 1; i++)
                 {
-                    cadena += $"{i + 1}. {pokemon.Ataques[i].Nombre}.\n";
+                    cadena += $"{i + 1}. Nombre: {pokemon.Ataques[i].Nombre} Tipo: {pokemon.Ataques[i].TipoAtaque.NombreTipo} Daño: {pokemon.Ataques[i].DañoBase} Es especial: {pokemon.Ataques[i].EsEspecial}.\n";
                 }
             }
             else

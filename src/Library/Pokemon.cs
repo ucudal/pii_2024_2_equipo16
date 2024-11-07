@@ -18,7 +18,7 @@ namespace Library;
         public string Estado { get; set; }
         public IEfectos? EfectoActivo { get; set; }
         public bool PuedeAtacar { get; set;}
-        public int TurnosContador { get; set; }
+        public int turnoContadorEspecial { get; set; }
 
         public Pokemon(string nombre, ITipo tipo, double vidaTotal)
             {
@@ -27,7 +27,7 @@ namespace Library;
                 VidaActual = vidaTotal;
                 VidaTotal = vidaTotal;
                 Ataques = new List<Ataque>();
-                TurnosContador = 0;
+                turnoContadorEspecial = 0;
             }
 
         /// <summary>
@@ -35,12 +35,19 @@ namespace Library;
         /// </summary>
         /// <param name="indiceAtaque"></param>
         /// <param name="enemigo"></param>
-        public void UsarAtaque(int indiceAtaque, IPokemon enemigo)           
+        public string UsarAtaque(int indiceAtaque, IPokemon enemigo)           
         {
             Ataque ataque = Ataques[indiceAtaque];
+            if (ataque.EsEspecial && turnoContadorEspecial % 2 != 0)
+            {
+                return "El ataque especial no está disponible este turno.";
+            }
             double dano = ataque.CalcularDaño(this, enemigo);
             enemigo.RecibirDaño(dano);
-        } 
+            turnoContadorEspecial++;
+        
+            return $"{Nombre} usó {ataque.Nombre} y causó {dano} puntos de daño.";
+        }
         
         /// <summary>
         /// Recibe daño del pokémon enemigo
@@ -74,6 +81,19 @@ namespace Library;
                     Ataques.Add(ataque);
                 }
             } 
+        }
+        
+        public List<Ataque> ObtenerAtaquesDisponibles()
+        {
+            if (turnoContadorEspecial % 2 == 0)
+            {
+                return Ataques; // Todos los ataques están disponibles cada dos turnos
+            }
+            else
+            {
+                // Solo devuelve ataques no especiales en turnos alternos
+                return Ataques.Where(ataque => !ataque.EsEspecial).ToList();
+            }
         }
 
     }
