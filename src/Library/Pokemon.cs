@@ -15,6 +15,7 @@ namespace Library;
         public double DefensaEspecial { get; set; }         //Valor de defensa del pokémon
     
         public List<Ataque> Ataques {get; set;}
+        public CatalogoAtaques CatalogoAtaque { get; set; }
         public string Estado { get; set; }
         public IEfectos? EfectoActivo { get; set; }
         public bool PuedeAtacar { get; set;}
@@ -26,6 +27,7 @@ namespace Library;
                 VidaActual = vidaTotal;
                 VidaTotal = vidaTotal;
                 Ataques = new List<Ataque>();
+                CatalogoAtaque = new CatalogoAtaques();
             }
 
         /// <summary>
@@ -60,5 +62,16 @@ namespace Library;
         public string MostrarVida()
         {
             return $"{VidaActual}/{VidaTotal}";
-        } 
+        }
+
+        public void AtaquesPorTipo()
+        {
+            foreach (Ataque ataque in CatalogoAtaque.ataques)
+            {
+                if (ataque.TipoAtaque.NombreTipo == TipoPokemon.NombreTipo)
+                {
+                    Ataques.Add(ataque);
+                }
+            }
+        }
     }

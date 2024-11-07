@@ -16,4 +16,5 @@ public interface IJugador
     public bool MostrarTurno();                         //Método que devuelve un valor booleano con el turno correspondiente al jugador
     public void ElegirDelCatalogo(int indice);
     public void MostrarCatalogo(CatalogoPokemons catalogo);
+    public string MostrarAtaquesDisponibles(int indice);
 }
