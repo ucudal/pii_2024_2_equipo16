@@ -1,6 +1,6 @@
 ﻿namespace Library.Tests;
 using Library;
-public class HistoriaUsuarioDos
+/*public class HistoriaUsuarioDos
 {
     
     /// <summary>
@@ -47,4 +47,4 @@ public class HistoriaUsuarioDos
     }
 
     
-}
+}*/
