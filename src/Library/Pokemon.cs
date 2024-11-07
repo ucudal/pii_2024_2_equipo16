@@ -15,11 +15,11 @@ namespace Library;
         public double DefensaEspecial { get; set; }         //Valor de defensa del pokémon
     
         public List<Ataque> Ataques {get; set;}
-        public CatalogoAtaques CatalogoAtaque { get; set; }
         public string Estado { get; set; }
         public IEfectos? EfectoActivo { get; set; }
         public bool PuedeAtacar { get; set;}
-        
+        public int TurnosContador { get; set; }
+
         public Pokemon(string nombre, ITipo tipo, double vidaTotal)
             {
                 Nombre = nombre;
@@ -27,7 +27,7 @@ namespace Library;
                 VidaActual = vidaTotal;
                 VidaTotal = vidaTotal;
                 Ataques = new List<Ataque>();
-                CatalogoAtaque = new CatalogoAtaques();
+                TurnosContador = 0;
             }
 
         /// <summary>
@@ -66,12 +66,14 @@ namespace Library;
 
         public void AtaquesPorTipo()
         {
-            foreach (Ataque ataque in CatalogoAtaque.ataques)
+            CatalogoAtaques catalogo = new CatalogoAtaques();
+            foreach (Ataque ataque in catalogo.ataques)
             {
                 if (ataque.TipoAtaque.NombreTipo == TipoPokemon.NombreTipo)
                 {
                     Ataques.Add(ataque);
                 }
-            }
+            } 
         }
+
     }
