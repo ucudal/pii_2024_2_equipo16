@@ -7,16 +7,16 @@ namespace Library;
         public string NombreJugador { get; set; }
         public List<IPokemon> EquipoPokemons { get; set; } 
         public bool TurnoActual { get; set; }
-        private CatalogoPokemons Catalogo { get; set; }
-        public CatalogoAtaques Ataques { get; set; }
+        public IPokemon PokemonActual { get; set; }
 
-        public JugadorPrincipal(string nombre, CatalogoPokemons catalogo, CatalogoAtaques ataques)
+        public CatalogoPokemons CatalogoPokemon { get; set; }
+
+        public JugadorPrincipal(string nombre)
         {
             NombreJugador = nombre;
             EquipoPokemons = new List<IPokemon>();
             TurnoActual = true;
-            Catalogo = catalogo;
-            Ataques = ataques;
+            CatalogoPokemon = new CatalogoPokemons();
         }
         
         /// <summary>
@@ -35,7 +35,7 @@ namespace Library;
                     throw new ArgumentOutOfRangeException("Debe ingresar un valor entre 0 y "+ (EquipoPokemons.Count - 1));
                 }
                 
-                return EquipoPokemons[indice];
+                return PokemonActual = EquipoPokemons[indice];
             }
             catch (ArgumentOutOfRangeException ex)
             {
@@ -65,6 +65,14 @@ namespace Library;
         /// <returns>Turno actual</returns>
         public bool MostrarTurno()
         {
+            if (TurnoActual)
+            {
+                Console.WriteLine($"{NombreJugador} es tu turno");
+            }
+            else
+            {
+                Console.WriteLine("Es turno del oponente");
+            }
             return TurnoActual;
         }
 
@@ -72,9 +80,9 @@ namespace Library;
         /// Muestra el catálogo con todos los pokémones disponibles para formar un equipo
         /// </summary>
         /// <param name="catalogo"></param>
-        public void MostrarCatalogo(CatalogoPokemons catalogo)
+        public void MostrarCatalogo()
         {
-            catalogo.MostrarCatalogo();
+            CatalogoPokemon.MostrarCatalogo();
         }
 
         /// <summary>
@@ -87,9 +95,10 @@ namespace Library;
             if (indice >= 0 && indice < EquipoPokemons.Count)
             {
                 IPokemon pokemon = EquipoPokemons[indice];
+                pokemon.AtaquesPorTipo();
                 Console.WriteLine($"Ataques disponibles para {pokemon.Nombre} de tipo {pokemon.TipoPokemon.NombreTipo}:\n");
 
-                for (int i = 0; i < pokemon.Ataques.Count - 1; i++)
+                for (int i = 0; i < pokemon.Ataques.Count; i++)
                 {
                     cadena += $"{i + 1}. Nombre: {pokemon.Ataques[i].Nombre} Tipo: {pokemon.Ataques[i].TipoAtaque.NombreTipo} Daño: {pokemon.Ataques[i].DañoBase} Es especial: {pokemon.Ataques[i].EsEspecial}.\n";
                 }
@@ -110,9 +119,14 @@ namespace Library;
             int indiceCatalogo = indice - 1;
             if (EquipoPokemons.Count < 6)
             {
-                IPokemon pokemon = Catalogo.Catalogo[indiceCatalogo];
+                IPokemon pokemon = CatalogoPokemon.Catalogo[indiceCatalogo];
+                
+                if (EquipoPokemons.Count == 1)
+                {
+                    PokemonActual = pokemon;
+                }
+               
                 EquipoPokemons.Add(pokemon);
-                pokemon.AtaquesPorTipo();
             }
             else
             {
@@ -133,5 +147,27 @@ namespace Library;
             }
 
             return cadenaEquipo;
+        }
+
+        public bool PokemonesDerrotados()
+        {
+            foreach (IPokemon pokemon in EquipoPokemons)
+            {
+                if (pokemon.VidaActual > 0)     //si al menos uno tiene vida mayor a 0 la batalla sigue
+                {
+                    return false;
+                }
+            }
+            return true;        // sino se termina
+        }
+
+        public void CambiarPokemonBatalla(int indice)
+        {
+            if (indice >= 0 && indice < EquipoPokemons.Count)
+            {
+                PokemonActual = EquipoPokemons[indice];
+                Console.WriteLine($"{NombreJugador} ha cambiado de pokémon a {PokemonActual.Nombre}");
+                TurnoActual = false;
+            }
         }
     }

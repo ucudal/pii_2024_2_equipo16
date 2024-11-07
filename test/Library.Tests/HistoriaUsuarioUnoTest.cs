@@ -10,9 +10,9 @@ public class HistoriaUsuarioUnoTest
     public void SetUp()
     {
         catalogo = new CatalogoPokemons();
-        jugador1 = new JugadorPrincipal("Ana", catalogo, ataques);
+        jugador1 = new JugadorPrincipal("Ana");
         
-        jugador1.MostrarCatalogo(catalogo);
+        jugador1.MostrarCatalogo();
         jugador1.ElegirDelCatalogo(1);
         jugador1.ElegirDelCatalogo(5);
         jugador1.ElegirDelCatalogo(7);

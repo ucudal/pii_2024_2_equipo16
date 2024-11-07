@@ -15,6 +15,7 @@ namespace Library;
         public double DefensaEspecial { get; set; }         //Valor de defensa del pokémon
     
         public List<Ataque> Ataques {get; set;}
+        public CatalogoAtaques Catalogo { get; set; }
         public string Estado { get; set; }
         public IEfectos? EfectoActivo { get; set; }
         public bool PuedeAtacar { get; set;}
@@ -27,6 +28,7 @@ namespace Library;
                 VidaActual = vidaTotal;
                 VidaTotal = vidaTotal;
                 Ataques = new List<Ataque>();
+                Catalogo = new CatalogoAtaques();
                 turnoContadorEspecial = 0;
             }
 
@@ -38,15 +40,26 @@ namespace Library;
         public string UsarAtaque(int indiceAtaque, IPokemon enemigo)           
         {
             Ataque ataque = Ataques[indiceAtaque];
+            
             if (ataque.EsEspecial && turnoContadorEspecial % 2 != 0)
             {
                 return "El ataque especial no está disponible este turno.";
             }
-            double dano = ataque.CalcularDaño(this, enemigo);
-            enemigo.RecibirDaño(dano);
-            turnoContadorEspecial++;
+            
+            double ponderador = TipoPokemon.Ponderador(enemigo.TipoPokemon);
+            
+            double danoInicial = ataque.CalcularDaño(this, enemigo);
+
+            double danoTotal = danoInicial * ponderador;
+            
+            enemigo.RecibirDaño(danoTotal);
+
+            if (ataque.EsEspecial)
+            {
+                turnoContadorEspecial++;
+            }
         
-            return $"{Nombre} usó {ataque.Nombre} y causó {dano} puntos de daño.";
+            return $"{Nombre} usó {ataque.Nombre} y causó {danoTotal} puntos de daño.";
         }
         
         /// <summary>
@@ -56,9 +69,10 @@ namespace Library;
         public void RecibirDaño(double dano)          
         {
             VidaActual -= dano;
-            if (VidaActual <0)
+            if (VidaActual <= 0)
             {
                 VidaActual = 0;
+                Estado = "Derrotado";
             }
         }
         
@@ -73,8 +87,7 @@ namespace Library;
 
         public void AtaquesPorTipo()
         {
-            CatalogoAtaques catalogo = new CatalogoAtaques();
-            foreach (Ataque ataque in catalogo.ataques)
+            foreach (Ataque ataque in Catalogo.ataques)
             {
                 if (ataque.TipoAtaque.NombreTipo == TipoPokemon.NombreTipo)
                 {

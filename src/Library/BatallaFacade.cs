@@ -16,8 +16,8 @@ namespace Library
 
         public BatallaFacade(string nombreJugador1, string nombreJugador2)
         {
-            jugador1 = new JugadorPrincipal(nombreJugador1, new CatalogoPokemons(), new CatalogoAtaques()); //El constructor toma como parámetro a los rivales de la partida
-            jugador2 = new JugadorPrincipal(nombreJugador2, new CatalogoPokemons(), new CatalogoAtaques());
+            jugador1 = new JugadorPrincipal(nombreJugador1); //El constructor toma como parámetro a los rivales de la partida
+            jugador2 = new JugadorPrincipal(nombreJugador2);
             contadorTurnos = 1; // Inicializamos el contador de turnos en 1
             jugador1Ataco = false; // Inicializamos en falso, porque aún no ha atacado
             jugador2Ataco = false; // Inicializamos en falso, porque aún no ha atacado
@@ -56,7 +56,7 @@ namespace Library
         {
             if (jugador1.NombreJugador == nombreJugador)
             {
-                jugador1.ElegirAtaque(jugador1.ElegirPokemon(0), jugador2.ElegirPokemon(0), indiceAtaque);
+                jugador1.ElegirAtaque(jugador1.PokemonActual, jugador2.PokemonActual, indiceAtaque);
                 Console.WriteLine($"La vida de {jugador2.ElegirPokemon(0).Nombre} es {jugador2.ElegirPokemon(0).MostrarVida()}");
                 jugador1Ataco = true; // Indicamos que el jugador 1 atacó
             }
@@ -75,9 +75,28 @@ namespace Library
                 Console.WriteLine($"Comienza el turno {contadorTurnos}.");
                 jugador1Ataco = false; // Reseteamos el estado para el próximo turno
                 jugador2Ataco = false; // Reseteamos el estado para el próximo turno
+
+                VerificarGanador();
             }
         }
 
+        public string VerificarGanador()
+        {
+            if (jugador1.PokemonesDerrotados())
+            {
+                return $"{jugador1.NombreJugador} ha sido derrotado " +
+                                  $"{jugador2.NombreJugador} GANÓ";
+            }
+            else if (jugador2.PokemonesDerrotados())
+            {
+                return $"{jugador2.NombreJugador} ha sido derrotado" +
+                                  $"{jugador1.NombreJugador} GANÓ";   
+            }
+            else
+            {
+                return "La batalla continúa";
+            }
+        }
         //Muestra el turno del jugador.
         public bool VerificarTurno(string nombreJugador)
         {
@@ -96,6 +115,37 @@ namespace Library
         public int ObtenerTurnoActual()
         {
             return contadorTurnos;
+        }
+
+        // permite l jugador cambiar de pokemon durante la batalla (en su turno)
+        public void CambiarPokemon(string nombreJugador, int indicePokemonACambiar)
+        {
+            if (jugador1.NombreJugador == nombreJugador)
+            {
+                if (indicePokemonACambiar >= 0 && indicePokemonACambiar < jugador1.EquipoPokemons.Count)
+                {
+                    jugador1.CambiarPokemonBatalla(indicePokemonACambiar);
+                    Console.WriteLine($"{jugador1.NombreJugador} ha cambiado de pokemon");
+                    jugador1.TurnoActual = false;      // el jugador pierde el turno al cambiar de pokémon
+                }
+                else
+                {
+                    Console.WriteLine("Índice no válido");
+                }
+            }
+            else if (jugador2.NombreJugador == nombreJugador)
+            {
+                if (indicePokemonACambiar >= 0 && indicePokemonACambiar < jugador2.EquipoPokemons.Count)
+                {
+                    jugador2.CambiarPokemonBatalla(indicePokemonACambiar);
+                    Console.WriteLine($"{jugador2.NombreJugador} ha cambiado de pokemon");
+                    jugador2.TurnoActual = false;
+                }  
+                else
+                {
+                    Console.WriteLine("Índice no válido");
+                }
+            }
         }
     }
 }

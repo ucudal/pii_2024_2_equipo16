@@ -16,6 +16,7 @@ public interface IPokemon
     public double AtaqueEspecial { get; set; }          //Valor de ataque especial del pokémon
     public double DefensaEspecial { get; set; }         //Valor de defensa del pokémon
     public List<Ataque> Ataques {get; set;}
+    public CatalogoAtaques Catalogo { get; set; }
     public string Estado {get; set; }                    //Estado es si esta bajo algun efecto
     IEfectos? EfectoActivo{get; set;}
     public int turnoContadorEspecial { get; set; }
