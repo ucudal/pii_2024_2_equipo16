@@ -8,13 +8,15 @@ namespace Library;
         public List<IPokemon> EquipoPokemons { get; set; } 
         public bool TurnoActual { get; set; }
         private CatalogoPokemons Catalogo { get; set; }
+        public CatalogoAtaques Ataques { get; set; }
 
-        public JugadorPrincipal(string nombre, CatalogoPokemons catalogo)
+        public JugadorPrincipal(string nombre, CatalogoPokemons catalogo, CatalogoAtaques ataques)
         {
             NombreJugador = nombre;
             EquipoPokemons = new List<IPokemon>();
             TurnoActual = true;
             Catalogo = catalogo;
+            Ataques = ataques;
         }
         
         /// <summary>
@@ -76,6 +78,30 @@ namespace Library;
         }
 
         /// <summary>
+        /// Muestra los ataques disponibles que tiene el pokémon a través de su índice dentro del equipo
+        /// </summary>
+        /// <param name="indice"></param>
+        public string MostrarAtaquesDisponibles(int indice)
+        {
+            string cadena = "";
+            if (indice >= 0 && indice < EquipoPokemons.Count)
+            {
+                IPokemon pokemon = EquipoPokemons[indice];
+                Console.WriteLine($"Ataques disponibles para {pokemon.Nombre} de tipo {pokemon.TipoPokemon.NombreTipo}:\n");
+
+                for (int i = 0; i < pokemon.Ataques.Count; i++)
+                {
+                    cadena += $"{i + 1}. {pokemon.Ataques[i].Nombre}.\n";
+                }
+            }
+            else
+            {
+                cadena += "Índice inválido";
+            }
+            return cadena;
+        }
+
+        /// <summary>
         /// Del catálogo elegir 6 pokémons para agregar a su equipo
         /// </summary>
         /// <param name="indice">número de pokémon en la lista del catálogo</param>
@@ -84,7 +110,9 @@ namespace Library;
             int indiceCatalogo = indice - 1;
             if (EquipoPokemons.Count < 6)
             {
-                EquipoPokemons.Add(Catalogo.Catalogo[indiceCatalogo]);
+                IPokemon pokemon = Catalogo.Catalogo[indiceCatalogo];
+                EquipoPokemons.Add(pokemon);
+                pokemon.AtaquesPorTipo();
             }
             else
             {

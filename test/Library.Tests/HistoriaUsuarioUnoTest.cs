@@ -1,12 +1,17 @@
 namespace Library.Tests;
 
-public class HistoriaUsuarioUno
+public class HistoriaUsuarioUnoTest
 {
-    [Test]
-    public void PokemonsSeleccionadosSeMuestranEnPantalla()
+    public CatalogoPokemons catalogo;
+    public JugadorPrincipal jugador1;
+    public CatalogoAtaques ataques;
+
+    [SetUp]
+    public void SetUp()
     {
-        CatalogoPokemons catalogo = new CatalogoPokemons();
-        JugadorPrincipal jugador1 = new JugadorPrincipal("Ana", new CatalogoPokemons());
+        catalogo = new CatalogoPokemons();
+        jugador1 = new JugadorPrincipal("Ana", catalogo, ataques);
+        
         jugador1.MostrarCatalogo(catalogo);
         jugador1.ElegirDelCatalogo(1);
         jugador1.ElegirDelCatalogo(5);
@@ -15,15 +20,24 @@ public class HistoriaUsuarioUno
         jugador1.ElegirDelCatalogo(12);
         jugador1.ElegirDelCatalogo(14);
         jugador1.MostrarEquipo();
-
+        
+    }
+    [Test]
+    public void PokemonsSeleccionadosSeMuestranEnPantalla()
+    {
         string resultado = $"Squirtle, Agua, " +
                            $"Charmander, Fuego, " +
                            $"Articuno, Hielo, " +
                            $"Bulbasaur, Planta, " +
                            $"Pupitar, Roca, " +
                            $"Rhyhorn, Tierra, ";
-        
+
         Assert.That(jugador1.MostrarEquipo(), Is.EqualTo(resultado));
+    }
+    
+    [Test]
+    public void SeleccionarEquipo()
+    { 
         Assert.That(6, Is.EqualTo(jugador1.EquipoPokemons.Count));
     }
 }

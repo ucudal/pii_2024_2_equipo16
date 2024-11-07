@@ -15,13 +15,14 @@ public interface IPokemon
     public double Defensa { get; set; }                 //Valor de defensa del pokémon
     public double AtaqueEspecial { get; set; }          //Valor de ataque especial del pokémon
     public double DefensaEspecial { get; set; }         //Valor de defensa del pokémon
-    public List<Ataque> Ataques {get; set;}         //Lista de ataques disponibles.
+    public List<Ataque> Ataques {get; set;}
     public string Estado {get; set; }                    //Estado es si esta bajo algun efecto
     IEfectos? EfectoActivo{get; set;}
+    public int TurnosContador { get; set; }
+
     public bool PuedeAtacar {get; set; }                //Indicador si esta en condiciones de atacar
-    public string UsarAtaque(int indiceAtaque, IPokemon enemigo);           //Método para realizar un ataque 
+    public void UsarAtaque(int indiceAtaque, IPokemon enemigo);           //Método para realizar un ataque 
     public void RecibirDaño(double dano);          //Método para recibir daño del pokémon enemigo
     public string MostrarVida();                        //Método para mostrar la vida actual del pokémon
-    public List<Ataque> ObtenerAtaquesDisponibles();
-    public string AgregarAtaque(Ataque ataque);
+    public void AtaquesPorTipo();
 }

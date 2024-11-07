@@ -16,8 +16,8 @@ namespace Library
 
         public BatallaFacade(string nombreJugador1, string nombreJugador2)
         {
-            jugador1 = new JugadorPrincipal(nombreJugador1, new CatalogoPokemons()); //El constructor toma como parámetro a los rivales de la partida
-            jugador2 = new JugadorPrincipal(nombreJugador2, new CatalogoPokemons());
+            jugador1 = new JugadorPrincipal(nombreJugador1, new CatalogoPokemons(), new CatalogoAtaques()); //El constructor toma como parámetro a los rivales de la partida
+            jugador2 = new JugadorPrincipal(nombreJugador2, new CatalogoPokemons(), new CatalogoAtaques());
             contadorTurnos = 1; // Inicializamos el contador de turnos en 1
             jugador1Ataco = false; // Inicializamos en falso, porque aún no ha atacado
             jugador2Ataco = false; // Inicializamos en falso, porque aún no ha atacado
