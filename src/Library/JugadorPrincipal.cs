@@ -184,7 +184,7 @@ namespace Library;
             }
 
             IItem item = InventarioItems[indiceItem];
-            item.Usar(pokemon);
+            //item.Usar(pokemon);
             InventarioItems.RemoveAt(indiceItem);
             TurnoActual = false; // Al usar un ítem, se pierde el turno
             
