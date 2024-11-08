@@ -21,7 +21,7 @@ public class SuperPocion: IItem
     /// <param name="VidaActual"></param>
     /// <param name="VidaTotal"></param>
     /// <returns></returns>
-    public double Curar(double VidaActual, double VidaTotal)
+    public double Usar(double VidaActual, double VidaTotal)
     {
         if (usosRestantes > 0)
         {

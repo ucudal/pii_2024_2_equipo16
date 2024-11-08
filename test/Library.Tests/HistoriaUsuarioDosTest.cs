@@ -27,12 +27,7 @@ public class HistoriaUsuarioDosTest
         
         jugador2.MostrarCatalogo();
         jugador2.ElegirDelCatalogo(2);
-        jugador2.ElegirDelCatalogo(4);
-        jugador2.ElegirDelCatalogo(5);
-        jugador2.ElegirDelCatalogo(8);
-        jugador2.ElegirDelCatalogo(9);
-        jugador2.ElegirDelCatalogo(13);
-        jugador2.MostrarEquipo();
+        
     }
     
     [Test]

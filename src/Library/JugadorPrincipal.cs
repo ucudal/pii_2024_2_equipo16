@@ -203,4 +203,18 @@ namespace Library;
             TurnoActual = false; // Al usar un ítem, se pierde el turno
             
         }
+
+        /// <summary>
+        /// Muestra el inventario del jugador
+        /// </summary>
+        public string MostrarInventario()
+        {
+            string cadena = "Inventario de Items:\n";
+            for (int i = 0; i < InventarioItems.Count; i++)
+            {
+                cadena += $"{i + 1}. {InventarioItems[i].NombreItem} \n";
+            }
+
+            return cadena;
+        }
     }
