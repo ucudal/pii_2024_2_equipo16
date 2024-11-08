@@ -10,38 +10,50 @@ public class HistoriaUsuarioSeisTest
     [SetUp]
     public void SetUp()
     {
-        CatalogoPokemons = new CatalogoPokemons();
+        /*CatalogoPokemons = new CatalogoPokemons();
         jugador = new JugadorPrincipal("Asia");
         jugador2 = new JugadorPrincipal("Robert");
         batalla = new BatallaFacade(jugador.NombreJugador, jugador2.NombreJugador);
         
-        jugador.MostrarCatalogo();
-        jugador.ElegirDelCatalogo(5);
-        jugador.ElegirDelCatalogo(6);
-        jugador.ElegirDelCatalogo(7);
-        jugador.ElegirDelCatalogo(8);
-        jugador.ElegirDelCatalogo(10);
-        jugador.ElegirDelCatalogo(12);
-        
-        jugador2.MostrarCatalogo();
-        jugador2.ElegirDelCatalogo(1);
-        jugador2.ElegirDelCatalogo(5);
-        jugador2.ElegirDelCatalogo(9);
-        jugador2.ElegirDelCatalogo(10);
-        jugador2.ElegirDelCatalogo(11);
-        jugador2.ElegirDelCatalogo(14);
+        batalla.AgregarPokemonAJugador(jugador.NombreJugador,jugador.ElegirDelCatalogo(5));
+        batalla.AgregarPokemonAJugador(jugador.NombreJugador, jugador.ElegirDelCatalogo(6));
+        batalla.AgregarPokemonAJugador(jugador.NombreJugador,jugador.ElegirDelCatalogo(7));
+        batalla.AgregarPokemonAJugador(jugador.NombreJugador, jugador.ElegirDelCatalogo(8));
+        batalla.AgregarPokemonAJugador(jugador.NombreJugador,jugador.ElegirDelCatalogo(10));
+        batalla.AgregarPokemonAJugador(jugador.NombreJugador,jugador.ElegirDelCatalogo(12));
+
+        batalla.AgregarPokemonAJugador(jugador2.NombreJugador,jugador2.ElegirDelCatalogo(1));
+        batalla.AgregarPokemonAJugador(jugador2.NombreJugador, jugador2.ElegirDelCatalogo(5));
+        batalla.AgregarPokemonAJugador(jugador2.NombreJugador,jugador2.ElegirDelCatalogo(9));
+        batalla.AgregarPokemonAJugador(jugador2.NombreJugador, jugador2.ElegirDelCatalogo(10));
+        batalla.AgregarPokemonAJugador(jugador2.NombreJugador,jugador2.ElegirDelCatalogo(11));
+        batalla.AgregarPokemonAJugador(jugador2.NombreJugador,jugador2.ElegirDelCatalogo(14));
+        */
+
+        jugador = new JugadorPrincipal("Juan");
+        jugador2 = new JugadorPrincipal("Martina");
+
+        jugador.ElegirDelCatalogo(2); //Elige a Squirtle
+        jugador.ElegirDelCatalogo(5); //Elige a Bulbasaur
+
+        jugador2.ElegirDelCatalogo(4); //Elige a Charmander.
+        jugador2.ElegirDelCatalogo(6); //Elige a Pidgey.
+
+        batalla = new BatallaFacade(jugador.NombreJugador, jugador2.NombreJugador);
     }
 
     [Test]
     public void DerrotaCuandoTotalPokemonsVidaCero()
     {
-        batalla.RealizarAtaque(jugador.NombreJugador, 0);
-        batalla.RealizarAtaque(jugador2.NombreJugador, 0);
+        foreach (IPokemon pokemon in jugador2.EquipoPokemons)
+        {
+            pokemon.VidaActual = 0; //Forzamos a que todos los pokemones del equipo estén derrotados.
+        }
+
+        batalla.VerificarGanador();
         
-        batalla.RealizarAtaque(jugador.NombreJugador, 0);
-        batalla.RealizarAtaque(jugador2.NombreJugador, 0);
-        
-        Assert.That(jugador.PokemonesDerrotados() || jugador2.PokemonesDerrotados(), Is.True);
+        Assert.IsFalse(batalla.BatallaSigue());
+
     }
 
     [Test]

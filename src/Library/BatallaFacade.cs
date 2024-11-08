@@ -13,7 +13,7 @@ namespace Library
         private int contadorTurnos; // Contador de turnos
         private bool jugador1Ataco; // Indicador de que el jugador 1 atacó en este turno
         private bool jugador2Ataco; // Indicador de que el jugador 2 atacó en este turno
-
+        public bool BatallaEnCurso { get; private set; }
         public BatallaFacade(string nombreJugador1, string nombreJugador2)
         {
             jugador1 = new JugadorPrincipal(nombreJugador1); //El constructor toma como parámetro a los rivales de la partida
@@ -21,6 +21,7 @@ namespace Library
             contadorTurnos = 1; // Inicializamos el contador de turnos en 1
             jugador1Ataco = false; // Inicializamos en falso, porque aún no ha atacado
             jugador2Ataco = false; // Inicializamos en falso, porque aún no ha atacado
+            BatallaEnCurso = true;
         }
 
         //Este método es utilizado para agregar Pokemones a la lista de opciones del jugador. Para poder 
@@ -86,15 +87,18 @@ namespace Library
             {
                 return $"{jugador1.NombreJugador} ha sido derrotado " +
                                   $"{jugador2.NombreJugador} GANÓ";
+                BatallaEnCurso = false;
             }
             else if (jugador2.PokemonesDerrotados())
             {
                 return $"{jugador2.NombreJugador} ha sido derrotado" +
-                                  $"{jugador1.NombreJugador} GANÓ";   
+                                  $"{jugador1.NombreJugador} GANÓ";
+                BatallaEnCurso = false;
             }
             else
             {
                 return "La batalla continúa";
+                
             }
         }
         //Muestra el turno del jugador.
@@ -146,6 +150,19 @@ namespace Library
                     Console.WriteLine("Índice no válido");
                 }
             }
+        }
+
+        /// <summary>
+        /// Gestiona el turno actual
+        /// </summary>
+        public bool BatallaSigue()
+        {
+            if (jugador1.PokemonesDerrotados() || jugador2.PokemonesDerrotados())
+            {
+                return BatallaEnCurso = false;
+            }
+            
+            return BatallaEnCurso = true;
         }
     }
 }

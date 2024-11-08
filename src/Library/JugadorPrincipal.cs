@@ -18,8 +18,7 @@ namespace Library;
             NombreJugador = nombre;
             EquipoPokemons = new List<IPokemon>();
             InventarioItems = new List<IItem> { new SuperPocion(), new Revivir(), new CuraTotal() };
-
-        TurnoActual = true;
+            TurnoActual = true;
             CatalogoPokemon = new CatalogoPokemons();
         }
         
@@ -118,7 +117,7 @@ namespace Library;
         /// Del catálogo elegir 6 pokémons para agregar a su equipo
         /// </summary>
         /// <param name="indice">número de pokémon en la lista del catálogo</param>
-        public void ElegirDelCatalogo(int indice)
+        public Pokemon ElegirDelCatalogo(int indice)
         {
             int indiceCatalogo = indice - 1;
             if (EquipoPokemons.Count < 6)
@@ -131,10 +130,12 @@ namespace Library;
                 }
                
                 EquipoPokemons.Add(pokemon);
+                return (Pokemon)pokemon;
             }
             else
             {
                 Console.WriteLine("Ya tienes 6 pokémones en tu equipo");
+                return null;
             }
         }
         
@@ -153,6 +154,10 @@ namespace Library;
             return cadenaEquipo;
         }
 
+        /// <summary>
+        /// Verifica si todos los pokemones del equipo están derrotados.
+        /// </summary>
+        /// <returns>True si todos los Pokemones están derrotados, False en caso contrario.</returns>
         public bool PokemonesDerrotados()
         {
             foreach (IPokemon pokemon in EquipoPokemons)
