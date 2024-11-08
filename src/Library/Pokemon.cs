@@ -39,6 +39,11 @@ namespace Library;
         /// <param name="enemigo"></param>
         public string UsarAtaque(int indiceAtaque, IPokemon enemigo)           
         {
+            if (indiceAtaque < 0 || indiceAtaque >= Ataques.Count)
+            {
+                return "El ataque no es válido";
+            }
+            
             Ataque ataque = Ataques[indiceAtaque];
             
             if (ataque.EsEspecial && turnoContadorEspecial % 2 != 0)
@@ -54,10 +59,9 @@ namespace Library;
             
             enemigo.RecibirDaño(danoTotal);
 
-            if (ataque.EsEspecial)
-            {
-                turnoContadorEspecial++;
-            }
+            
+            turnoContadorEspecial++;
+            
         
             return $"{Nombre} usó {ataque.Nombre} y causó {danoTotal} puntos de daño.";
         }

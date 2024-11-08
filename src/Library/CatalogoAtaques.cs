@@ -12,9 +12,9 @@ public class CatalogoAtaques
 
     public void AgregarAtaques()
     {
+        ataques.Add(new Ataque("Acua Jet", new Agua(), 25, true));
         ataques.Add(new Ataque("Burbuja", new Agua(), 25, false));
         ataques.Add(new Ataque("Pistola de agua", new Agua(), 6, false));
-        ataques.Add(new Ataque("Acua Jet", new Agua(), 25, true));
         ataques.Add(new Ataque("Hidrobomba", new Agua(), 90, true));
 
         ataques.Add(new Ataque("Chispa", new Electrico(), 7, false));

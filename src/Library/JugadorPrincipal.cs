@@ -5,7 +5,9 @@ namespace Library;
     public class JugadorPrincipal : IJugador
     {
         public string NombreJugador { get; set; }
-        public List<IPokemon> EquipoPokemons { get; set; } 
+        public List<IPokemon> EquipoPokemons { get; set; }
+        
+        public List<IItem> InventarioItems { get; set; }
         public bool TurnoActual { get; set; }
         public IPokemon PokemonActual { get; set; }
 
@@ -15,7 +17,9 @@ namespace Library;
         {
             NombreJugador = nombre;
             EquipoPokemons = new List<IPokemon>();
-            TurnoActual = true;
+            InventarioItems = new List<IItem> { new SuperPocion(), new Revivir(), new CuraTotal() };
+
+        TurnoActual = true;
             CatalogoPokemon = new CatalogoPokemons();
         }
         
@@ -169,5 +173,20 @@ namespace Library;
                 Console.WriteLine($"{NombreJugador} ha cambiado de pokémon a {PokemonActual.Nombre}");
                 TurnoActual = false;
             }
+        }
+        
+        public void UsarItem(int indiceItem, IPokemon pokemon)
+        {
+            if (indiceItem < 0 || indiceItem >= InventarioItems.Count)
+            {
+                Console.WriteLine("Índice de ítem inválido.");
+                return;
+            }
+
+            IItem item = InventarioItems[indiceItem];
+            item.Usar(pokemon);
+            InventarioItems.RemoveAt(indiceItem);
+            TurnoActual = false; // Al usar un ítem, se pierde el turno
+            
         }
     }
