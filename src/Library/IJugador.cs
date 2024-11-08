@@ -6,7 +6,6 @@ namespace Library;
 public interface IJugador
 {
     public string NombreJugador { get; set; }           //Nombre del juagdor
-    //public List<IPokemon> EquipoPokemon { get; set; }         //Cada jugador tiene una lista de pokemones disponibles para usar durante la partida, sería su "Equipo".
     public List<IPokemon> EquipoPokemons { get; set; }
     public bool TurnoActual { get; set; }               //Mediante este bool se indica si el turno es del jugador o de su oponente.
     public IPokemon PokemonActual { get; set; }
@@ -18,4 +17,7 @@ public interface IJugador
     public Pokemon ElegirDelCatalogo(int indice);
     public string MostrarEquipo();
     public bool PokemonesDerrotados();
+    public void CambiarPokemonBatalla(int indice);
+    public void UsarItem(int indiceItem, IPokemon pokemon);
+    public string MostrarInventario();
 }
