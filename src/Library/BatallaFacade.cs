@@ -14,6 +14,7 @@ namespace Library
         private bool jugador1Ataco; // Indicador de que el jugador 1 atacó en este turno
         private bool jugador2Ataco; // Indicador de que el jugador 2 atacó en este turno
         public bool BatallaEnCurso { get; private set; }
+        public List<JugadorPrincipal> listaDeEspera = new List<JugadorPrincipal>();
         public BatallaFacade(string nombreJugador1, string nombreJugador2)
         {
             jugador1 = new JugadorPrincipal(nombreJugador1); //El constructor toma como parámetro a los rivales de la partida
@@ -189,6 +190,94 @@ namespace Library
             }
             
             return BatallaEnCurso = true;
+        }
+
+        /// <summary>
+        /// Método para unirse a la lista de espera
+        /// </summary>
+        /// <param name="jugador"></param>
+        /// <returns></returns>
+        public string ListaDeEspera(JugadorPrincipal jugador)
+        {
+            if (!listaDeEspera.Contains(jugador))
+            {
+                listaDeEspera.Add(jugador);
+                return $"{jugador.NombreJugador} fue agregado a la lista de espera";
+            }
+            else
+            {
+                return $"{jugador.NombreJugador} ya está agregado a la lista de espera";
+            }
+        }
+
+        /// <summary>
+        /// Muestra los jugadores que están en la lista de espera para jugar
+        /// </summary>
+        public string MostrarListaDeEspera()
+        {
+            string resultado = "";
+            if (listaDeEspera.Count == 0)
+            {
+                resultado += "Lista de espera vacía";
+            }
+            else
+            {
+                Console.WriteLine("Jugadores en la lista de espera:");
+                foreach (JugadorPrincipal jugador in listaDeEspera)
+                {
+                    resultado += $"{jugador.NombreJugador}\n";
+                }
+            }
+            return resultado;
+        }
+
+        /// <summary>
+        /// Se fija si en la lista de espera hay 2 jugadores o más esperando para comenzar una batalla,
+        /// en el caso de que lo haya comienza la batalla entre los dos primeros jugadores de la lista
+        /// y los elimina de la lista de espera. Sino mostrará que no hay jugadores suficientes para iniciar
+        /// una batalla
+        /// </summary>
+        public void IniciarBatallaListaDeEspera(Random random = null)
+        {
+            if (listaDeEspera.Count >= 2)
+            {
+                JugadorPrincipal jugadorLista = listaDeEspera[0];
+                JugadorPrincipal jugadorLista2 = listaDeEspera[1];
+                listaDeEspera.Remove(jugadorLista);
+                listaDeEspera.Remove(jugadorLista2);
+
+                NotificarInicio(jugadorLista);
+                NotificarInicio(jugadorLista2);
+
+                if (random == null)
+                {
+                    random = new Random();
+                }
+                
+                bool primerTurno = random.Next(2) == 0;     // compara si el número generado es 0 (0 = true)(1 = false)
+                
+                if (primerTurno)
+                {
+                    jugadorLista.TurnoActual = true;
+                    jugadorLista2.TurnoActual = false;
+                    Console.WriteLine($"{jugadorLista.NombreJugador} es el primero en jugar");
+                }
+                else
+                {
+                    jugadorLista.TurnoActual = false;
+                    jugadorLista2.TurnoActual = true;
+                    Console.WriteLine($"{jugadorLista2.NombreJugador} es el primero en jugar");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"No hay jugadores suficientes para comenzar una batalla");
+            }
+        }
+
+        public string NotificarInicio(JugadorPrincipal jugador)
+        {
+            return $"{jugador.NombreJugador} la batalla ha comenzado";
         }
     }
 }
