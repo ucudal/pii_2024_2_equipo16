@@ -121,7 +121,12 @@ namespace Library
             return contadorTurnos;
         }
 
-        // permite l jugador cambiar de pokemon durante la batalla (en su turno)
+        
+        /// <summary>
+        /// Ejecuta el cambio de Pokemon y gestiona el cambio de turno.
+        /// </summary>
+        /// <param name="nombreJugador"></param>
+        /// <param name="indicePokemonACambiar"></param>
         public void CambiarPokemon(string nombreJugador, int indicePokemonACambiar)
         {
             if (jugador1.NombreJugador == nombreJugador)
@@ -151,6 +156,27 @@ namespace Library
                 }
             }
         }
+        
+        /// <summary>
+        /// Ejecutar el cambio de Pokémon y gestionar el turno
+        /// </summary>
+        public void CambiaPokemon(JugadorPrincipal jugador, int indice)
+        {
+            jugador.CambiarPokemonBatalla(indice);
+            VerificarFinTurno(jugador);
+        }
+
+        /// <summary>
+        /// Verificar si se pierde el turno después de una acción
+        /// </summary>
+        private void VerificarFinTurno(JugadorPrincipal jugador)
+        {
+            if (!jugador.TurnoActual)
+            {
+                Console.WriteLine($"{jugador.NombreJugador} ha perdido su turno al cambiar de Pokémon.");
+            }
+        }
+        
 
         /// <summary>
         /// Gestiona el turno actual

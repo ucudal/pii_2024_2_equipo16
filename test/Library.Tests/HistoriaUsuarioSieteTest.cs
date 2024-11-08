@@ -35,7 +35,8 @@ public class HistoriaUsuarioSieteTest
     [Test]
     public void CambiarPokemon()
     {
-        batalla.CambiarPokemon(jugador.NombreJugador, 2);       //Cambia a Charizard
+        jugador.PokemonActual = jugador.EquipoPokemons[0];
+        batalla.CambiaPokemon(jugador, 1);       //Cambia a Charizard
         
         Assert.That("Charizard", Is.EqualTo(jugador.PokemonActual.Nombre));
     }
@@ -43,9 +44,9 @@ public class HistoriaUsuarioSieteTest
     [Test]
     public void PierdeTurno()
     {
-        jugador.TurnoActual = true;
+        jugador.PokemonActual = jugador.EquipoPokemons[0];
 
-        batalla.CambiarPokemon(jugador.NombreJugador, 4);
+        batalla.CambiaPokemon(jugador, 1);
 
         Assert.That(jugador.TurnoActual, Is.EqualTo(false));
     }

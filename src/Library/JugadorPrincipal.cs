@@ -170,14 +170,23 @@ namespace Library;
             return true;        // sino se termina
         }
 
+        /// <summary>
+        /// Cambia el pokemon actual por otro del equipo
+        /// </summary>
+        /// <param name="indice">Indice del Pokemon en el equipo</param>
         public void CambiarPokemonBatalla(int indice)
         {
-            if (indice >= 0 && indice < EquipoPokemons.Count)
+            if (indice < 0 || indice >= EquipoPokemons.Count)
             {
-                PokemonActual = EquipoPokemons[indice];
-                Console.WriteLine($"{NombreJugador} ha cambiado de pokémon a {PokemonActual.Nombre}");
-                TurnoActual = false;
+                Console.WriteLine("Indice del Pokemon inválido");
+                return;
             }
+            
+            PokemonActual = EquipoPokemons[indice];
+            Console.WriteLine($"{NombreJugador} ha cambiado de pokémon a {PokemonActual.Nombre}");
+                
+            
+            TurnoActual = false;
         }
         
         public void UsarItem(int indiceItem, IPokemon pokemon)
