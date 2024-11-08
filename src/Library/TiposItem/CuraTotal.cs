@@ -13,7 +13,7 @@ namespace Library
         }
 
         // Método para quitar los efectos
-        public void QuitarEfectos(IPokemon objetivo)
+        public void Usar(IPokemon objetivo)
         {
             if (usosRestantes > 0)
             {
@@ -39,5 +39,7 @@ namespace Library
                 Console.WriteLine("No se pueden usar más Cura Total en esta batalla.");
             }
         }
+
+       
     }
 }
