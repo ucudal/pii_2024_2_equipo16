@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">**PRIMER<sp/>ENTREGA:<sp/>Notas<sp/>de<sp/>reflexión**</highlight></codeline>
+<codeline><highlight class="normal">--------------------------------------------------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">En<sp/>esta<sp/>primera<sp/>instancia,<sp/>frente<sp/>a<sp/>este<sp/>nuevo<sp/>desafío,<sp/>hemos<sp/>llegado<sp/>como<sp/>grupo<sp/>a<sp/>las<sp/>siguientes<sp/>reflexiones,<sp/>dudas<sp/>y<sp/>conocimientos<sp/>nuevos<sp/>mediante<sp/>el<sp/>proceso<sp/>de<sp/>esta<sp/>primera<sp/>parte<sp/>del<sp/>proyecto.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>**Desafíos<sp/>de<sp/>la<sp/>entrega<sp/>más<sp/>difíciles**</highlight></codeline>
+<codeline><highlight class="normal"><sp/>----------------------------------------------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">Algunos<sp/>aspectos<sp/>con<sp/>los<sp/>cuales<sp/>tuvimos<sp/>dificultad<sp/>a<sp/>la<sp/>hora<sp/>de<sp/>diseño<sp/>podrían<sp/>ser<sp/>las<sp/>interfaces.<sp/>Es<sp/>decir,<sp/>decidir<sp/>las<sp/>clases<sp/>de<sp/>dominio<sp/>fue<sp/>la<sp/>parte<sp/>del<sp/>trabajo<sp/>que<sp/>requirió<sp/>mayor<sp/>dedicación,<sp/>ya<sp/>que<sp/>son<sp/>la<sp/>base<sp/>fundamental<sp/>del<sp/>resto<sp/>de<sp/>las<sp/>clases<sp/>implementadas.</highlight></codeline>
+<codeline><highlight class="normal">Más<sp/>adelante<sp/>algunas<sp/>dificultades<sp/>que<sp/>encontramos<sp/>fue<sp/>poder<sp/>implementar<sp/>un<sp/>código<sp/>eficaz<sp/>para<sp/>poder<sp/>definir<sp/>las<sp/>responsabilidades<sp/>de<sp/>las<sp/>clases<sp/>y<sp/>el<sp/>comportamiento<sp/>de<sp/>distintos<sp/>objetos.</highlight></codeline>
+<codeline><highlight class="normal">Por<sp/>último,<sp/>en<sp/>este<sp/>proyecto<sp/>nos<sp/>encontramos<sp/>frente<sp/>a<sp/>un<sp/>concepto<sp/>nuevo,<sp/>que<sp/>es<sp/>la<sp/>existencia<sp/>de<sp/>la<sp/>fachada.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Cosas<sp/>nuevas<sp/>aprendidas<sp/>mediante<sp/>la<sp/>elaboración<sp/>del<sp/>proyecto**</highlight></codeline>
+<codeline><highlight class="normal">----------------------------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">Como<sp/>mencionamos<sp/>en<sp/>la<sp/>parte<sp/>anterior,<sp/>un<sp/>tema<sp/>nuevo<sp/>que<sp/>hemos<sp/>aprendido<sp/>en<sp/>esta<sp/>instancia<sp/>es<sp/>la<sp/>existencia<sp/>de<sp/>la<sp/>fachada.<sp/>En<sp/>este<sp/>caso,<sp/>entendemos<sp/>por<sp/>fachada<sp/>a<sp/>un<sp/>patrón<sp/>de<sp/>diseño<sp/>que<sp/>se<sp/>utiliza<sp/>para<sp/>simplificar<sp/>la<sp/>interacción<sp/>entre<sp/>clases.<sp/>El<sp/>objetivo<sp/>de<sp/>la<sp/>fachada<sp/>es<sp/>evitar<sp/>tener<sp/>que<sp/>trabjar<sp/>con<sp/>múltiples<sp/>clases<sp/>u<sp/>otros<sp/>sistemas<sp/>complejos,<sp/>actuando<sp/>como<sp/>un<sp/>intermediario<sp/>entre<sp/>ellas.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">**Recursos<sp/>valiosos<sp/>para<sp/>la<sp/>dinámica<sp/>del<sp/>proyecto**</highlight></codeline>
+<codeline><highlight class="normal">----------------------------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">Debido<sp/>a<sp/>que<sp/>nos<sp/>encontramos<sp/>frente<sp/>a<sp/>una<sp/>propuesta<sp/>innovadora,<sp/>para<sp/>poder<sp/>entender<sp/>bien<sp/>cómo<sp/>funcionaba<sp/>la<sp/>dinámica<sp/>del<sp/>juego,<sp/>hemos<sp/>decidido<sp/>hacer<sp/>nada<sp/>más<sp/>y<sp/>nada<sp/>menos<sp/>que<sp/>probar<sp/>jugando<sp/>unas<sp/>partidas<sp/>en<sp/>el<sp/>Pokemon<sp/>Showdown,<sp/>esto<sp/>mediante<sp/>la<sp/>siguiente<sp/>página<sp/>web:<sp/>&lt;https://pokemonshowdown.com/&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Además,<sp/>se<sp/>puede<sp/>observar<sp/>en<sp/>el<sp/>código<sp/>la<sp/>existencia<sp/>de<sp/>distintos<sp/>tipos<sp/>de<sp/>pokemones,<sp/>cada<sp/>uno<sp/>con<sp/>sus<sp/>fortalezas<sp/>y<sp/>con<sp/>sus<sp/>debilidades.<sp/>Dicha<sp/>información<sp/>la<sp/>pudimos<sp/>obtener<sp/>de<sp/>la<sp/>siguiente<sp/>tabla<sp/>y<sp/>esta<sp/>misma<sp/>es<sp/>en<sp/>la<sp/>que<sp/>se<sp/>basará<sp/>el<sp/>juego<sp/>para<sp/>identificar<sp/>al<sp/>personaje<sp/>más<sp/>fuerte<sp/>en<sp/>cada<sp/>batalla.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Los<sp/>recursos<sp/>de<sp/>información<sp/>fueron<sp/>los<sp/>siguientes:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>.<sp/>&lt;https://pokemaster.es/tipos-de-pokemon-todas-las-debilidades-pokemon-segun-el-tipo-elemental-no-121393/&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>.<sp/>&lt;https://vandal.elespanol.com/reportaje/tabla-de-tipos-de-pokemon-fortalezas-y-debilidades-en-todos-los-juegos&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>.<sp/>&lt;https://www.mundodeportivo.com/alfabeta/guia/tabla-tipos-pokemon-fortalezas-debilidades&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">**Reflexiones,<sp/>comentarios,<sp/>etc**</highlight></codeline>
+<codeline><highlight class="normal">------------------------------------------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">Como<sp/>reflexión<sp/>final<sp/>de<sp/>esta<sp/>primera<sp/>entrega,<sp/>tenemos<sp/>por<sp/>entendido<sp/>que<sp/>este<sp/>es<sp/>un<sp/>desafío<sp/>completamente<sp/>nuevo<sp/>en<sp/>el<sp/>que<sp/>tendremos<sp/>que<sp/>implementar<sp/>a<sp/>fondo<sp/>nuestros<sp/>conocimientos<sp/>sobre<sp/>diseño<sp/>orientado<sp/>a<sp/>objetos.<sp/>Por<sp/>esto,<sp/>y<sp/>debido<sp/>a<sp/>que<sp/>será<sp/>un<sp/>trabajo<sp/>largo,<sp/>hemos<sp/>implemetado<sp/>el<sp/>sistema<sp/>de<sp/>organización<sp/>que<sp/>ofrece<sp/>Trello.</highlight></codeline>
+<codeline><highlight class="normal">En<sp/>este<sp/>definimos<sp/>primero<sp/>las<sp/>tareas<sp/>a<sp/>realizar,<sp/>luego<sp/>indicamos<sp/>si<sp/>ya<sp/>están<sp/>listas<sp/>para<sp/>a<sp/>hacer<sp/>y<sp/>una<sp/>vez<sp/>delegada<sp/>la<sp/>tarea<sp/>es<sp/>responsabilidad<sp/>del<sp/>integrante<sp/>del<sp/>equipo<sp/>de<sp/>marcar<sp/>si<sp/>la<sp/>está<sp/>realizando<sp/>y<sp/>si<sp/>ya<sp/>está<sp/>lista.</highlight></codeline>
+<codeline><highlight class="normal">Nuestra<sp/>tabla<sp/>se<sp/>encuentra<sp/>en<sp/>el<sp/>siguiente<sp/>link:<sp/>&lt;https://trello.com/invite/b/6703de37cf3960b68425477a/ATTI795f0bcf6e0f9f9f73480dac39304e30C5BEDD72/1erentrega-pii&gt;</highlight></codeline>
+    </programlisting>
+    <location file="C:/P2repos/pii_2024_2_equipo16/README.md"/>
+  </compounddef>
+</doxygen>
