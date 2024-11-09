@@ -89,6 +89,10 @@ namespace Library;
             return $"{VidaActual}/{VidaTotal}";
         }
 
+        /// <summary>
+        /// Agrega cada ataque del catálogo de ataques al tipo de pokemon correspondiente por tipo.
+        /// Esto se asegura de que no haya incongruencia entre los tipos de pokemon y ataque en el juego.
+        /// </summary>
         public void AtaquesPorTipo()
         {
             foreach (Ataque ataque in Catalogo.ataques)
@@ -100,6 +104,10 @@ namespace Library;
             } 
         }
         
+        /// <summary>
+        /// Muestra los ataques disponibles que tiene el pokemon según el turno. A cada 2 turnos, no tiene acceso a los ataques especiales.
+        /// </summary>
+        /// <returns>Devuelve lista de ataques disponibles según partida.</returns>
         public List<Ataque> ObtenerAtaquesDisponibles()
         {
             if (turnoContadorEspecial % 2 == 0)

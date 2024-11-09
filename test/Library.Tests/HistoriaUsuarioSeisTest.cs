@@ -1,5 +1,7 @@
 namespace Library.Tests;
-
+/// <summary>
+/// Como jugador, quiero ganar la batalla cuando la vida de todos los Pokémons oponente llegue a cero.
+/// </summary>
 public class HistoriaUsuarioSeisTest
 {
     public CatalogoPokemons CatalogoPokemons;
@@ -10,26 +12,6 @@ public class HistoriaUsuarioSeisTest
     [SetUp]
     public void SetUp()
     {
-        /*CatalogoPokemons = new CatalogoPokemons();
-        jugador = new JugadorPrincipal("Asia");
-        jugador2 = new JugadorPrincipal("Robert");
-        batalla = new BatallaFacade(jugador.NombreJugador, jugador2.NombreJugador);
-        
-        batalla.AgregarPokemonAJugador(jugador.NombreJugador,jugador.ElegirDelCatalogo(5));
-        batalla.AgregarPokemonAJugador(jugador.NombreJugador, jugador.ElegirDelCatalogo(6));
-        batalla.AgregarPokemonAJugador(jugador.NombreJugador,jugador.ElegirDelCatalogo(7));
-        batalla.AgregarPokemonAJugador(jugador.NombreJugador, jugador.ElegirDelCatalogo(8));
-        batalla.AgregarPokemonAJugador(jugador.NombreJugador,jugador.ElegirDelCatalogo(10));
-        batalla.AgregarPokemonAJugador(jugador.NombreJugador,jugador.ElegirDelCatalogo(12));
-
-        batalla.AgregarPokemonAJugador(jugador2.NombreJugador,jugador2.ElegirDelCatalogo(1));
-        batalla.AgregarPokemonAJugador(jugador2.NombreJugador, jugador2.ElegirDelCatalogo(5));
-        batalla.AgregarPokemonAJugador(jugador2.NombreJugador,jugador2.ElegirDelCatalogo(9));
-        batalla.AgregarPokemonAJugador(jugador2.NombreJugador, jugador2.ElegirDelCatalogo(10));
-        batalla.AgregarPokemonAJugador(jugador2.NombreJugador,jugador2.ElegirDelCatalogo(11));
-        batalla.AgregarPokemonAJugador(jugador2.NombreJugador,jugador2.ElegirDelCatalogo(14));
-        */
-
         jugador = new JugadorPrincipal("Juan");
         jugador2 = new JugadorPrincipal("Martina");
 
@@ -43,6 +25,7 @@ public class HistoriaUsuarioSeisTest
     }
 
     [Test]
+    //La batalla termina automáticamente cuando todos los Pokémons del oponente alcanza 0 de vida.
     public void DerrotaCuandoTotalPokemonsVidaCero()
     {
         foreach (IPokemon pokemon in jugador2.EquipoPokemons)
@@ -57,6 +40,7 @@ public class HistoriaUsuarioSeisTest
     }
 
     [Test]
+    //Se muestra un mensaje indicando el ganador de la batalla.
     public void MensajeGanador()
     {
         string ganador = batalla.VerificarGanador();

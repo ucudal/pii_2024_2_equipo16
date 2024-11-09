@@ -1,5 +1,7 @@
 namespace Library.Tests;
-
+/// <summary>
+/// Como jugador, quiero atacar en mi turno y hacer daño basado en la efectividad de los tipos de Pokémon.
+/// </summary>
 public class HistoriaUsuarioCuatroTest
 {
     public CatalogoPokemons CatalogoPokemons;

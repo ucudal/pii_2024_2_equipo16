@@ -1,5 +1,8 @@
 namespace Library.Tests;
 
+/// <summary>
+/// Se quiere probar que al entrnador le deje ver la lista de jugadores que se unieron a la lista.
+/// </summary>
 public class HistoriaUsuarioDiezTest
 {
     public JugadorPrincipal entrenador;

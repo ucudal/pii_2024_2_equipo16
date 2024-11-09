@@ -1,5 +1,7 @@
 namespace Library.Tests;
-
+/// <summary>
+/// Como jugador, quiero saber de quién es el turno para estar seguro de cuándo atacar o esperar.
+/// </summary>
 public class HistoriaUsuarioCincoTest
 {
     public CatalogoPokemons CatalogoPokemons;
@@ -23,6 +25,7 @@ public class HistoriaUsuarioCincoTest
     }
 
     [Test]
+    //En la pantalla se muestra claramente un indicador que señala de quién es el turno actual.
     public void MostrarTurnoActual()
     {
         jugador.TurnoActual = true;

@@ -1,5 +1,7 @@
 namespace Library.Tests;
-
+/// <summary>
+/// Como entrenador, quiero unirme a la lista de jugadores esperando por un oponente.
+/// </summary>
 public class HistoriaUsuarioNueveTest
 {
     public JugadorPrincipal entrenador;
@@ -16,6 +18,7 @@ public class HistoriaUsuarioNueveTest
     }
 
     [Test]
+    // El jugador recibe un mensaje indicandole que está en la lista de espera
     public void ListaDeEsperaJugadores()
     {
         string esperado = batalla.ListaDeEspera(entrenador);

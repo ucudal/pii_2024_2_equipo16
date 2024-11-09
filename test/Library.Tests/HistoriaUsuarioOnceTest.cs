@@ -1,5 +1,7 @@
 namespace Library.Tests;
-
+/// <summary>
+///  Como entrenador, quiero iniciar una ballata con un jugador que está esperando por un oponente.
+/// </summary>
 public class HistoriaUsuarioOnceTest
 {
     public JugadorPrincipal entrenador;
@@ -27,7 +29,7 @@ public class HistoriaUsuarioOnceTest
         
         string muestra2 = $"{entrenador2.NombreJugador} la batalla ha comenzado";
 
-        Assert.That(muestra, Is.EqualTo(batalla.NotificarInicio(entrenador2)));
+        Assert.That(muestra2, Is.EqualTo(batalla.NotificarInicio(entrenador2)));
     }
     
     [Test]

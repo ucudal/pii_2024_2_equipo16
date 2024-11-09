@@ -1,5 +1,9 @@
 ﻿namespace Library.Tests;
 
+/// <summary>
+/// Como entrenador, quiero poder usar un ítem durante una batalla.
+/// Al usar el ítem se pierde el turno
+/// </summary>
 public class HistoriaUsuarioOcho
 {
     public JugadorPrincipal jugador;

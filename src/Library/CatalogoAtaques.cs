@@ -1,5 +1,9 @@
 namespace Library;
 
+/// <summary>
+/// Esta clase muestra la variedad de ataques disponibles para poder utilizar durante la batalla y el resto del programa.
+/// Cada ataque es de un tipo de Pokemon y tiene su indice.
+/// </summary>
 public class CatalogoAtaques
 {
     public List<Ataque> ataques { get; set; }
@@ -10,6 +14,9 @@ public class CatalogoAtaques
         AgregarAtaques();
     }
 
+    /// <summary>
+    /// Agrega los ataques disponibles del programa en el catálogo.
+    /// </summary>
     public void AgregarAtaques()
     {
         ataques.Add(new Ataque("Acua Jet", new Agua(), 25, true));

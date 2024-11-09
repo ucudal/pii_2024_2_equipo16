@@ -1,5 +1,8 @@
 namespace Library
 {
+    /// <summary>
+    /// Item que cura a un Pokemon de efectos de ataques especiales (dormido, paralizado, envenenado o quemado).
+    /// </summary>
     public class CuraTotal : IItem
     {
         public string NombreItem { get; }
@@ -12,7 +15,11 @@ namespace Library
             usosRestantes = usosMaximos; // Inicializa usosRestantes con el máximo de usos
         }
 
-        // Método para quitar los efectos
+        
+        /// <summary>
+        /// Metodo para quitar los efectos
+        /// </summary>
+        /// <param name="objetivo">Es el pokemon al que se le quitarán los efectos.</param>
         public void Usar(IPokemon objetivo)
         {
             if (usosRestantes > 0)

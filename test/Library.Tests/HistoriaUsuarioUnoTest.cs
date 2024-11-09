@@ -1,5 +1,8 @@
 namespace Library.Tests;
 
+/// <summary>
+/// Test1: Como jugador quiero elegir 6 Pokemoon del catalogo disponible.
+/// </summary>
 public class HistoriaUsuarioUnoTest
 {
     public CatalogoPokemons catalogo;
@@ -7,6 +10,7 @@ public class HistoriaUsuarioUnoTest
     public CatalogoAtaques ataques;
 
     [SetUp]
+    //Debo asegurarme que se puede elegir hasta 6 pokemones y que se muestren en pantalla
     public void SetUp()
     {
         catalogo = new CatalogoPokemons();
@@ -32,12 +36,14 @@ public class HistoriaUsuarioUnoTest
                            $"Pupitar, Roca, " +
                            $"Rhyhorn, Tierra, ";
 
+        // Se asegura si el mensaje es el mismo (el de la lista del equipo que se forma)
         Assert.That(jugador1.MostrarEquipo(), Is.EqualTo(resultado));
     }
     
     [Test]
     public void SeleccionarEquipo()
     { 
+        // Se asegura que al grupo se pudieron unir 6 pokemones y no más.
         Assert.That(6, Is.EqualTo(jugador1.EquipoPokemons.Count));
     }
 }

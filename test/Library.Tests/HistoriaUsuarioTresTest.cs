@@ -1,5 +1,7 @@
 namespace Library.Tests;
-
+/// <summary>
+/// Como jugador, quiero ver la cantidad de vida (HP) de mis Pokémons y de los Pokémons oponentes para saber cuánta salud tienen.
+/// </summary>
 public class HistoriaUsuarioTresTest
 {
     public CatalogoPokemons catalogo;
@@ -11,8 +13,8 @@ public class HistoriaUsuarioTresTest
     public void SetUp()
     {
         catalogo = new CatalogoPokemons();
-        jugador = new JugadorPrincipal("Ben");
-        jugador2 = new JugadorPrincipal("Dan");
+        jugador = new JugadorPrincipal("Pablo");
+        jugador2 = new JugadorPrincipal("Juan");
         
         jugador.MostrarCatalogo();
         jugador.ElegirDelCatalogo(3);
@@ -21,6 +23,8 @@ public class HistoriaUsuarioTresTest
     }
 
     [Test]
+    
+    //La vida de los Pokémons propios y del oponente se actualizan tras cada ataque.
     public void ActualizacionDeVidaEnCadaAtaque()
     {
         IPokemon pokemon = jugador.ElegirPokemon(0);
@@ -41,6 +45,7 @@ public class HistoriaUsuarioTresTest
     }
 
     [Test]
+    //La vida se muestra en formato numérico (ej. 20/50).
     public void MostrarVidaEnFormatoNumerico()
     {
         IPokemon pokemon = jugador.ElegirPokemon(0);

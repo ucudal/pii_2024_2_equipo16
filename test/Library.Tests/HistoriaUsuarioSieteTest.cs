@@ -1,5 +1,7 @@
 namespace Library.Tests;
-
+/// <summary>
+/// Como jugador, quiero poder cambiar de Pokémon durante una batalla.
+/// </summary>
 public class HistoriaUsuarioSieteTest
 {
     public CatalogoPokemons CatalogoPokemons; 

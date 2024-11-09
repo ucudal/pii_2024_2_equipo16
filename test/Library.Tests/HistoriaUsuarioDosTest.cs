@@ -2,6 +2,7 @@ namespace Library.Tests;
 
 /// <summary>
 /// Historia de usuario 2.
+/// Como jugador, quiero ver los ataques disponibles de mis Pokemones para poder elegir en cada turno
 /// </summary>
 public class HistoriaUsuarioDosTest
 {
@@ -31,6 +32,7 @@ public class HistoriaUsuarioDosTest
     }
     
     [Test]
+    
     public void AtaquesDisponiblesPrimerTurno()
     {
         //Estamos en el primer turno.
@@ -44,6 +46,7 @@ public class HistoriaUsuarioDosTest
     }
 
     [Test]
+    // Se debe asegurar que los ataques especiales se puedan seleccionar solo a cada 2 turnos.
     public void AtaquesDisponiblesSegundoTurno()
     {
         Pokemon pikachu = new Pokemon("Pikachu", new Electrico(), 100);
